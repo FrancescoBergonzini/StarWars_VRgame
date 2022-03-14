@@ -15,6 +15,7 @@ namespace SW_VRGame
         }
 
         [SerializeField] ItemStat config;
+
         //non uso damage e score
 
         private void Awake()
@@ -29,6 +30,8 @@ namespace SW_VRGame
 
             CurrHealth = MaxHealth;
         }
+
+
     }
 }
 

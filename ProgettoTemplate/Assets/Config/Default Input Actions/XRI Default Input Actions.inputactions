@@ -214,6 +214,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ActiveDeactiveSword",
+                    "type": "Button",
+                    "id": "8180f17d-5b8c-4e4d-9113-eaf8e3644fb0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -588,6 +597,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d5ee6053-cfb4-4439-83d8-0fd569ae1480",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "ActiveDeactiveSword",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

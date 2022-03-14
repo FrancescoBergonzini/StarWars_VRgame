@@ -16,20 +16,37 @@ public class HandInputHandler : MonoBehaviour
 {
     
     protected XRBaseController controller;
+    //[SerializeField]
+    //protected InputActionReference RestartAction;
     [SerializeField]
-    protected InputActionReference RestartAction;
+    protected InputActionReference SetSwordStatus;
  
 
 
     void Awake()
     {
         controller = GetComponent<XRBaseController>();
-        RestartAction.action.performed += Restart;
+        //RestartAction.action.performed += Restart;
+        
+    }
+
+    private void Start()
+    {
+        Debug.Log(SetSwordStatus);
+        SetSwordStatus.action.performed += SetSword;
     }
 
     private void Restart(InputAction.CallbackContext obj)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void SetSword(InputAction.CallbackContext obj)
+    {
+        if (SW_VRGame.SW_LightSaber.isBeenGrabbed)
+        {
+            SW_VRGame.SW_LightSaber.isActive = !SW_VRGame.SW_LightSaber.isActive;
+        }
     }
 
     /// <summary>
