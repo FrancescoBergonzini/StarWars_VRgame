@@ -26,6 +26,7 @@ public class Item : MonoBehaviour
     //Punteggio che trasferiscono a chi li usa/distrugge
     public int Score { get; protected set; } = 0;
 
+
     //Parametri e info dell'item
     public Dictionary<string, object> Params { get; protected set; } = new Dictionary<string, object>();
 }
