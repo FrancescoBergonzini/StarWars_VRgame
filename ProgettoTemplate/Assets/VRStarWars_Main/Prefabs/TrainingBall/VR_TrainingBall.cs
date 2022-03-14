@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace SW_VRGame
 {
-    public class SW_LightSaber : MonoBehaviour, IPausable
+    public class VR_TrainingBall : Item, IPausable
     {
+
         #region Pausable
         public bool IsPausable => throw new System.NotImplementedException();
 
@@ -13,7 +14,9 @@ namespace SW_VRGame
         {
             throw new System.NotImplementedException();
         }
+
         #endregion
+
     }
 }
 
