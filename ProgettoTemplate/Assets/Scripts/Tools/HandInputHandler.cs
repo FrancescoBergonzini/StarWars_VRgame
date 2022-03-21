@@ -36,6 +36,11 @@ public class HandInputHandler : MonoBehaviour
         SetSwordStatus.action.performed += SetSword;
     }
 
+    private void OnDisable()
+    {
+        SetSwordStatus.action.performed -= SetSword;
+    }
+
     private void Restart(InputAction.CallbackContext obj)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
