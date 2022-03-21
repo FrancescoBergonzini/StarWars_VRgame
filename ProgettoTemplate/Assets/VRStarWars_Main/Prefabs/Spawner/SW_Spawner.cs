@@ -6,7 +6,6 @@ namespace SW_VRGame
 {
     public class SW_Spawner : MonoBehaviour
     {
-
     }
 }
 

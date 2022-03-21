@@ -12,6 +12,7 @@ TagManager:
   - BuddyBot
   - HUD
   - Console
+  - Sword
   layers:
   - Default
   - TransparentFX
