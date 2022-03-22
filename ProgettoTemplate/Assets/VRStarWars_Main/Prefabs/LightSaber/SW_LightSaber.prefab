@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1826255504}
   - component: {fileID: 1826255505}
   - component: {fileID: 1826255503}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SW_LightSaber
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 213100522}
   laser: {fileID: 7958524952311060609}
-  isActive: 0
 --- !u!54 &1826255504
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -64,7 +63,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!136 &1826255505
@@ -122,10 +121,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6797615701331240666}
+        m_TargetAssemblyTypeName: SW_VRGame.SW_LightSaber, Assembly-CSharp
+        m_MethodName: SwordGrabbed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6797615701331240666}
+        m_TargetAssemblyTypeName: SW_VRGame.SW_LightSaber, Assembly-CSharp
+        m_MethodName: SwordGrabbed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Activated:
     m_PersistentCalls:
       m_Calls: []
@@ -205,7 +228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8366505735751983027}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Elsa_pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,6 +267,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161414822427460588, guid: 549bc6cf5bcfc6746986286463f7abaf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161414822427818924, guid: 549bc6cf5bcfc6746986286463f7abaf,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161414822427818924, guid: 549bc6cf5bcfc6746986286463f7abaf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161414822427818924, guid: 549bc6cf5bcfc6746986286463f7abaf,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161414822434654194, guid: 549bc6cf5bcfc6746986286463f7abaf,
+        type: 3}
+      propertyPath: m_startPos.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631937865818386340, guid: 549bc6cf5bcfc6746986286463f7abaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5514265369296196072, guid: 549bc6cf5bcfc6746986286463f7abaf,
         type: 3}
@@ -320,6 +373,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightSeber
       objectReference: {fileID: 0}
+    - target: {fileID: 5514265369296196075, guid: 549bc6cf5bcfc6746986286463f7abaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5514265369296196075, guid: 549bc6cf5bcfc6746986286463f7abaf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Sword
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5514265369296196073, guid: 549bc6cf5bcfc6746986286463f7abaf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 549bc6cf5bcfc6746986286463f7abaf, type: 3}
@@ -346,5 +409,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.16570915, y: 3.456402, z: 0.08153532}
-  m_Center: {x: -0.015489749, y: 1.7597538, z: 0.016070362}
+  m_Size: {x: 0.16570915, y: 3.0249658, z: 0.08153532}
+  m_Center: {x: -0.0154896965, y: 1.5440356, z: 0.016070362}

@@ -25,6 +25,8 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
         }
     }
 
+    protected virtual void OnAwake() { }
+
     /// <summary>
     /// Base awake method that sets the singleton's unique instance.
     /// </summary>
@@ -37,6 +39,7 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
         else
         {
             instance = (T)this;
+            OnAwake();
         }
     }
 

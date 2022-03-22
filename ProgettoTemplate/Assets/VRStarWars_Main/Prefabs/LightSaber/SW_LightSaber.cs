@@ -25,7 +25,7 @@ namespace SW_VRGame
             fullSize = laser.transform.localScale;
 
             //al di là della scala creiamo un nuovo vettore che mette a  0 la y
-            laser.transform.localScale = new Vector3(fullSize.x, 0, fullSize.z);
+            laser.transform.localScale = new Vector3(fullSize.x, 0.0001f, fullSize.z);
         }
 
         // Update is called once per frame
@@ -40,7 +40,7 @@ namespace SW_VRGame
             }
             else
             {
-                if (!isActive && laser.transform.localScale.y >= 0)
+                if (!isActive && laser.transform.localScale.y >= 0.0001)
                 {
                     laser.transform.localScale += new Vector3(0, -0.0001f, 0);
                     isActive = false;

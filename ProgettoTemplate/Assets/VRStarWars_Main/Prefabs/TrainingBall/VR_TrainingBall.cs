@@ -9,11 +9,17 @@ namespace SW_VRGame
         [SerializeField] ConstantForce _myforce;
         [SerializeField] Rigidbody _rdb;
 
+
         public static VR_TrainingBall Create(VR_TrainingBall prefab, Vector3 Tposition, float force)
         {
             VR_TrainingBall ball = Instantiate(prefab, Tposition, Quaternion.identity);
             ball.ApplyMyLaunchForce(force);
             return ball;
+        }
+
+        private void OnEnable()
+        {
+            //
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -31,7 +37,7 @@ namespace SW_VRGame
 
         void ApplyMyLaunchForce(float force)
         {
-            _myforce.force = new Vector3(force, 0, 0);
+            _myforce.force = new Vector3(0, 0, force);
         }
 
 
