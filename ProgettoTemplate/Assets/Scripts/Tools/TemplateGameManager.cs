@@ -10,6 +10,7 @@ public class TemplatePauseEvent : UnityEvent<bool>{ }
 public class TemplateEndEvent : UnityEvent { }
 
 
+
 /// <summary>
 /// Template di un GameManager per la gestione degli eventi del gioco
 /// </summary>
@@ -24,8 +25,8 @@ public class TemplateGameManager : Singleton<TemplateGameManager>
     public TemplatePauseEvent PauseEvent { get; protected set; } = new TemplatePauseEvent();
     public TemplateEndEvent EndEvent { get; protected set; } = new TemplateEndEvent();
 
-   
-
+    //Score
+    public int gameScore = 0;
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

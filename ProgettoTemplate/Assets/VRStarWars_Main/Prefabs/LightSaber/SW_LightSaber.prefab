@@ -270,6 +270,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3161414822427460588, guid: 549bc6cf5bcfc6746986286463f7abaf,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161414822427460588, guid: 549bc6cf5bcfc6746986286463f7abaf,
+        type: 3}
       propertyPath: m_TagString
       value: Sword
       objectReference: {fileID: 0}
@@ -290,6 +295,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3161414822434654194, guid: 549bc6cf5bcfc6746986286463f7abaf,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161414822434654194, guid: 549bc6cf5bcfc6746986286463f7abaf,
+        type: 3}
       propertyPath: m_startPos.y
       value: 3
       objectReference: {fileID: 0}
@@ -297,6 +307,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631937865818386340, guid: 549bc6cf5bcfc6746986286463f7abaf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5514265369296196072, guid: 549bc6cf5bcfc6746986286463f7abaf,
         type: 3}

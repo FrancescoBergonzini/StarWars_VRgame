@@ -11,6 +11,20 @@ namespace SW_VRGame
 
         [SerializeField] float delay;
         [SerializeField] VR_TrainingBall prefab_ball;
+        //
+
+        [SerializeField] TemplateGameManager currentScene_GameManager;
+
+        protected override void OnAwake()
+        {
+            //
+            if (currentScene_GameManager == null)
+            {
+                currentScene_GameManager = FindObjectOfType<TemplateGameManager>();
+            }
+
+            base.OnAwake();
+        }
 
         private void Start()
         {
@@ -30,8 +44,8 @@ namespace SW_VRGame
                     var variaForza = Random.Range(launchforce - 2, launchforce + 2);
 
                     var newball = VR_TrainingBall.Create(prefab_ball, allSpawner[Random.Range(0, allSpawner.Length)].transform.position, variaForza);
-
-                    //rdb_ball.AddForce(Vector3.right * launchForce * -1, ForceMode.Impulse);
+                    //mi iscrivo all'evento della palla per sapere quando viene distrutta e aggiornare lo score
+                    newball.UpdatescoreEnabler.AddListener(UpdateScore);
 
                     yield return new WaitForSeconds(variaDelay);
                 }
@@ -40,6 +54,17 @@ namespace SW_VRGame
 
             StartCoroutine(spawnBasicRoutine(delay));
         }
+
+        void UpdateScore(int value)
+        {
+            currentScene_GameManager.gameScore += value;
+        }
+
+        private void OnDisable()
+        {
+            //qua dovrei fare l'unsubscribe, ma in realtà questo oggetto è sempre in scena quindi evito
+        }
+
     }
 }
 
