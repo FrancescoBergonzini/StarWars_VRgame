@@ -18,6 +18,10 @@ namespace SW_VRGame
 
         public static bool isActive; //false
 
+        //
+        [SerializeField] GameObject _cutLogic;
+        [SerializeField] Rigidbody _myRigidbody;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -53,6 +57,24 @@ namespace SW_VRGame
         {
             Debug.Log("Stato spada grabbata: " + grabbed);
             isBeenGrabbed = grabbed;
+
+            if (grabbed)
+            {
+                //quando è presa, è cinematica e attiva il cut logic
+                _myRigidbody.isKinematic = true;
+                _myRigidbody.useGravity = false;
+                _cutLogic.SetActive(true);
+            }
+            else
+            {
+                //quando non è presa, è cinematica e disattiva il cut logic
+                //quando è presa, è cinematica e attiva il cut logic
+                _myRigidbody.isKinematic = false;
+                _myRigidbody.useGravity = true;
+                _cutLogic.SetActive(false);
+            }
+
+
         }
 
         #region Pausable

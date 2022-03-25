@@ -8,20 +8,13 @@ public class Taglio_Ascolta : MonoBehaviour
   
     private void OnTriggerEnter(Collider other)
     {
-
-        tagli[0].isCut = true;
-        tagli[1].isCut = true;
+        if(tagli != null)
+        {
+            tagli[0].isCut = true;
+            tagli[1].isCut = true;
+        }      
 
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

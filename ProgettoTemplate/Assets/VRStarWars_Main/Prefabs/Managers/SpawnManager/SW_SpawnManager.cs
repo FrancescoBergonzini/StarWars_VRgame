@@ -41,6 +41,7 @@ namespace SW_VRGame
                     var variaDelay = Random.Range(delay - 1f, delay + 1f);
                     //choose random spawner
 
+                    //test movimento con transform
                     var variaForza = Random.Range(launchforce - 2, launchforce + 2);
 
                     var newball = VR_TrainingBall.Create(prefab_ball, allSpawner[Random.Range(0, allSpawner.Length)].transform.position, variaForza);

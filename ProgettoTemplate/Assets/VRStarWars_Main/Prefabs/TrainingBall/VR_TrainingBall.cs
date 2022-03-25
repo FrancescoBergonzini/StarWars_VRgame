@@ -21,12 +21,13 @@ namespace SW_VRGame
         public static VR_TrainingBall Create(VR_TrainingBall prefab, Vector3 Tposition, float force)
         {
             VR_TrainingBall ball = Instantiate(prefab, Tposition, Quaternion.identity);
-            ball.ApplyMyLaunchForce(force);
+            //ball.ApplyMyLaunchForce(force);
             return ball;
         }
 
 
         //
+        /*
         private void OnCollisionEnter(Collision collision)
         {
             if(collision.gameObject.tag == "Sword" && InGame)
@@ -44,6 +45,12 @@ namespace SW_VRGame
                 //notifica lo score dell'avvenuta distruzione
             }
             
+        }
+        */
+
+        private void Update()
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * 2);
         }
 
         void ApplyMyLaunchForce(float force)

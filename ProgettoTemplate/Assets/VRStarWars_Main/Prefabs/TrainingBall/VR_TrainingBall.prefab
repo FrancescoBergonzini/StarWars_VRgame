@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4269977737353563517}
   - component: {fileID: 8372706819108043285}
   - component: {fileID: 2183275612154352353}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: VR_TrainingBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.31
+  m_Radius: 0.15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8372706819108043285
 Rigidbody:
@@ -177,6 +177,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TrainingBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806548738264292474, guid: c10faaf9f2966804ea02a4813dbbf07e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1666854621738745417, guid: c10faaf9f2966804ea02a4813dbbf07e, type: 3}
