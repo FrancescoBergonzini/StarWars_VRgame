@@ -14,7 +14,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(XRBaseController))]
 public class HandInputHandler : MonoBehaviour
 {
-    
+    [SerializeField]
     protected XRBaseController controller;
     //[SerializeField]
     //protected InputActionReference RestartAction;
@@ -32,7 +32,7 @@ public class HandInputHandler : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(SetSwordStatus);
+        Debug.Log("Script set Input enable sword");
         SetSwordStatus.action.performed += SetSword;
     }
 
@@ -48,9 +48,12 @@ public class HandInputHandler : MonoBehaviour
 
     private void SetSword(InputAction.CallbackContext obj)
     {
+        Debug.Log("Lancio set sword");
+
         if (SW_VRGame.SW_LightSaber.isBeenGrabbed)
         {
             SW_VRGame.SW_LightSaber.isActive = !SW_VRGame.SW_LightSaber.isActive;
+            Debug.Log("Premuto set sword");
         }
     }
 

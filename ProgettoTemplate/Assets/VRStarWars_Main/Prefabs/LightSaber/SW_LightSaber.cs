@@ -68,10 +68,12 @@ namespace SW_VRGame
             else
             {
                 //quando non è presa, è cinematica e disattiva il cut logic
-                //quando è presa, è cinematica e attiva il cut logic
+                //quando è presa, è cinematica e attiva il cut logic e disattiva spada
+
                 _myRigidbody.isKinematic = false;
                 _myRigidbody.useGravity = true;
                 _cutLogic.SetActive(false);
+                isActive = false;
             }
 
 

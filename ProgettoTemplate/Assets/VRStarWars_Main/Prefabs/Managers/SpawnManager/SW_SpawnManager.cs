@@ -38,6 +38,7 @@ namespace SW_VRGame
             {
                 while (true)
                 {
+                    Debug.Log("Spawn una mesh");
                     var variaDelay = Random.Range(delay - 1f, delay + 1f);
                     //choose random spawner
 
