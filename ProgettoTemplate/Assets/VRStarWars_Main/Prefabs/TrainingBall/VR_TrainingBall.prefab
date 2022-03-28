@@ -49,8 +49,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeOfMesh:
   - {fileID: 7890254366181264280}
-  - {fileID: 1920354139804901311}
-  - {fileID: 1680196026957054593}
 --- !u!1001 &1677861210912839650
 PrefabInstance:
   m_ObjectHideFlags: 0
