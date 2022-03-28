@@ -28,6 +28,9 @@ namespace SW_VRGame
 
         private void Start()
         {
+            //mi iscrivo all'evento spada per sapere quando aggiornare lo score
+            SW_CutBladeLogic.Instance.UpdatescoreEnabler.AddListener(UpdateScore);
+
             Test_SpawnBasicRoutine(delay);
         }
 
@@ -46,8 +49,7 @@ namespace SW_VRGame
                     var variaForza = Random.Range(launchforce - 2, launchforce + 2);
 
                     var newball = VR_TrainingBall.Create(prefab_ball, allSpawner[Random.Range(0, allSpawner.Length)].transform.position, variaForza);
-                    //mi iscrivo all'evento della palla per sapere quando viene distrutta e aggiornare lo score
-                    newball.UpdatescoreEnabler.AddListener(UpdateScore);
+                    
 
                     yield return new WaitForSeconds(variaDelay);
                 }

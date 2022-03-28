@@ -9,6 +9,8 @@ namespace SW_VRGame
     public class VR_CuttedMesh : MonoBehaviour
     {
         public int sliceCounter = 2;
+        public float delayCut = 1f;
+
         void Awake()
         {
             this.GetComponent<MeshCollider>().convex = true;
@@ -26,7 +28,7 @@ namespace SW_VRGame
 
         IEnumerator DelayCut()
         {
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(delayCut);
             //rendile nuovamente tagliabili dopo un secondo
             this.gameObject.tag = "Sliceable";
         }

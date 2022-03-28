@@ -1645,7 +1645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6344b7c54cfa94667b7e646ac91a389c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
   SetSwordStatus: {fileID: -5430067845239506339, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
 --- !u!1 &5995018240671895406

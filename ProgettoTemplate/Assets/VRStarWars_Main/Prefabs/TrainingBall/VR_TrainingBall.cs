@@ -3,23 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
 namespace SW_VRGame
 {
-    //evento Unity, publisher
-    public class Event_Score : UnityEvent<int> { }
 
     public class VR_TrainingBall : Item, IPausable
     {
         ConstantForce _myforce;
         Rigidbody _rdb;
-        bool InGame = true;
 
         //
         [SerializeField] GameObject[] typeOfMesh;
-
-        //evento con tipo il delegate indicato sopra
-        public Event_Score UpdatescoreEnabler = new Event_Score();
 
         public static VR_TrainingBall Create(VR_TrainingBall prefab, Vector3 Tposition, float force)
         {
@@ -30,32 +23,6 @@ namespace SW_VRGame
             return ball;
         }
 
-
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            if(collision.gameObject.tag == "Sword" && InGame)
-            {
-                InGame = !InGame;
-
-                _myforce.enabled = false;
-                _rdb.useGravity = true;
-
-                //quando distrutto chiamo evento score
-                UpdatescoreEnabler.Invoke(1); //passo 1, come parametro
-                
-                //Destroy(this.gameObject, 3);
-
-                //notifica lo score dell'avvenuta distruzione
-            }
-            
-        }
-        
-
-        private void Update()
-        {
-            //transform.Translate(Vector3.forward * Time.deltaTime * 2);
-        }
 
         public void ChooseRandomMesh()
         {

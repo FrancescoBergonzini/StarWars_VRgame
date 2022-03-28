@@ -14,7 +14,6 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(XRBaseController))]
 public class HandInputHandler : MonoBehaviour
 {
-    [SerializeField]
     protected XRBaseController controller;
     //[SerializeField]
     //protected InputActionReference RestartAction;
@@ -50,11 +49,22 @@ public class HandInputHandler : MonoBehaviour
     {
         Debug.Log("Lancio set sword");
 
-        if (SW_VRGame.SW_LightSaber.isBeenGrabbed)
+        if (SW_VRGame.SW_LightSaber.isBeenGrabbed) //funziona solo se spada grabbata
         {
-            SW_VRGame.SW_LightSaber.isActive = !SW_VRGame.SW_LightSaber.isActive;
-            Debug.Log("Premuto set sword");
+            SW_VRGame.SW_LightSaber.isPaused = !SW_VRGame.SW_LightSaber.isPaused;
         }
+        else 
+        { 
+
+            // Move the object upward in world space 1 unit/second.
+            //transform.Translate(Vector3.up * Time.deltaTime, Space.World);         
+        }
+    }
+
+    private void Update()
+    {
+        // Move our position a step closer to the target.
+        
     }
 
     /// <summary>

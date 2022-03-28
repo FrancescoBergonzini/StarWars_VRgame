@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2388716416835904133}
   - component: {fileID: 1624030873389821216}
   - component: {fileID: 3561573457281554922}
-  - component: {fileID: 1624030873389821220}
   - component: {fileID: 1624030873389821221}
   - component: {fileID: 1624030873389821222}
+  - component: {fileID: 5972480016194277054}
   - component: {fileID: 1624030873389821223}
   m_Layer: 6
   m_Name: lightSaber_new
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3057306706394855487}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -9.04264, y: 6.892, z: -8.863}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 1
@@ -38,7 +38,7 @@ Transform:
   - {fileID: 6601226271386735429}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &1624030873389821216
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -91,22 +91,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1624030873389821220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3057306706394855487}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d299bc57d82c94a8e5a58d5e187dac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swordCollider: {fileID: 3424856615433267996}
-  laser: {fileID: 4752938855943705719}
-  _cutLogic: {fileID: 0}
-  _myRigidbody: {fileID: 1624030873389821221}
 --- !u!54 &1624030873389821221
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -118,8 +102,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
@@ -133,10 +117,24 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0058787633
-  m_Height: 0.0019999477
-  m_Direction: 1
-  m_Center: {x: 0.015766546, y: 0, z: 0}
+  m_Radius: 0.001987487
+  m_Height: 0.012736587
+  m_Direction: 0
+  m_Center: {x: 0.016, y: 0, z: 0}
+--- !u!114 &5972480016194277054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3057306706394855487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d299bc57d82c94a8e5a58d5e187dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordCollider: {fileID: 3424856615433267996}
+  laser: {fileID: 4752938855943705719}
 --- !u!114 &1624030873389821223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,34 +176,10 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SW_VRGame.SW_LightSaber, Assembly-CSharp
-        m_MethodName: SwordGrabbed
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SW_VRGame.SW_LightSaber, Assembly-CSharp
-        m_MethodName: SwordGrabbed
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_Activated:
     m_PersistentCalls:
       m_Calls: []
@@ -287,8 +261,10 @@ GameObject:
   - component: {fileID: 4752938855943531575}
   - component: {fileID: 4752938855941299303}
   - component: {fileID: 4752938855942765187}
+  - component: {fileID: 1519559627}
   - component: {fileID: 4752938855932612713}
   - component: {fileID: 3424856615433267996}
+  - component: {fileID: 1519559628}
   m_Layer: 6
   m_Name: LightSaber-Blade
   m_TagString: Sword
@@ -361,6 +337,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4752938855943705719}
   m_Mesh: {fileID: 0}
+--- !u!114 &1519559627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4752938855943705719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04add50ee1511c646975975e447ac0a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat_cubeSlice: {fileID: 2100000, guid: a28bc46fe61ec46459b3c7963146ff11, type: 2}
 --- !u!114 &4752938855932612713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,11 +377,27 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4752938855943705719}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.16570915, y: 3.0249658, z: 0.08153532}
-  m_Center: {x: -0.0154896965, y: 1.5440356, z: 0.016070362}
+  m_Size: {x: 0.16570915, y: 2.8226442, z: 0.106321946}
+  m_Center: {x: -0.015489698, y: 1.5473872, z: 0.003980001}
+--- !u!54 &1519559628
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4752938855943705719}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8445662857286153106
 GameObject:
   m_ObjectHideFlags: 0
