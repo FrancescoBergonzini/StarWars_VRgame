@@ -79,6 +79,11 @@ namespace SW_VRGame
 
         }
 
+        private void Test_()
+        {
+            _myRigidbody.isKinematic = false;
+        }
+
         #region Pausable
         public bool IsPausable => throw new System.NotImplementedException();
 

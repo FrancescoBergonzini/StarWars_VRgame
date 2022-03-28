@@ -148,6 +148,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806548738264292474, guid: c10faaf9f2966804ea02a4813dbbf07e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Sliceable
+      objectReference: {fileID: 0}
     - target: {fileID: 8894334640197184591, guid: c10faaf9f2966804ea02a4813dbbf07e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -185,7 +190,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!135 &4897603786400492698
+--- !u!135 &313111747885893015
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -312,6 +317,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806548738264292474, guid: c10faaf9f2966804ea02a4813dbbf07e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Sliceable
+      objectReference: {fileID: 0}
     - target: {fileID: 8894334640197184591, guid: c10faaf9f2966804ea02a4813dbbf07e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -343,7 +353,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!65 &2643620327778107496
+--- !u!65 &6060411059175835364
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -474,7 +484,12 @@ PrefabInstance:
     - target: {fileID: 8806548738264292474, guid: c10faaf9f2966804ea02a4813dbbf07e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806548738264292474, guid: c10faaf9f2966804ea02a4813dbbf07e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Sliceable
       objectReference: {fileID: 0}
     - target: {fileID: 8894334640197184591, guid: c10faaf9f2966804ea02a4813dbbf07e,
         type: 3}
@@ -507,7 +522,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!136 &4601341528932532715
+--- !u!136 &6935858677339762172
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -517,8 +532,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.49999997
-  m_Height: 1.9999999
+  m_Radius: 0.5
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!75 &7786496481233905146

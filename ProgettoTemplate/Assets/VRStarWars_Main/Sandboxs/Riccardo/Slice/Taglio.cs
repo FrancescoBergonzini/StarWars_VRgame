@@ -29,7 +29,6 @@ public class Taglio : MonoBehaviour
             foreach (Collider objectToSlice in objectsToSlice)
             {
                 SlicedHull slicedObject = SliceObject(objectToSlice.gameObject, materialAfterSlice);
-
                 //Crea una parte superiore dal taglio
                 GameObject upperHullGameobject = slicedObject.CreateUpperHull(objectToSlice.gameObject, materialAfterSlice);
                 //Crea una parte inferiore dal taglio
@@ -54,7 +53,10 @@ public class Taglio : MonoBehaviour
     private void MakeItPhysical(GameObject obj)
     {
         obj.AddComponent<MeshCollider>().convex = true;
-        obj.AddComponent<Rigidbody>();     //.AddForce(obj.transform.position, ForceMode.Impulse);
+        obj.AddComponent<Rigidbody>();
+        //.AddForce(obj.transform.position, ForceMode.Impulse);
+
+        Destroy(obj, 3);
         
     }
 

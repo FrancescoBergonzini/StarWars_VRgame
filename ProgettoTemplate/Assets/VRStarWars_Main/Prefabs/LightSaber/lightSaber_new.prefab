@@ -1,38 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1940193946986248136
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 860331472227989070}
-  m_Layer: 6
-  m_Name: CutLogic
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &860331472227989070
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940193946986248136}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.015854677, y: 0, z: 0}
-  m_LocalScale: {x: 0.033333335, y: 0.03333334, z: 0.03333334}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7909318487412450071}
-  - {fileID: 6632709869280881603}
-  m_Father: {fileID: 2388716416835904133}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3057306706394855487
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +36,6 @@ Transform:
   m_Children:
   - {fileID: 4752938855943531575}
   - {fileID: 6601226271386735429}
-  - {fileID: 860331472227989070}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -139,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 3424856615433267996}
   laser: {fileID: 4752938855943705719}
-  _cutLogic: {fileID: 1940193946986248136}
+  _cutLogic: {fileID: 0}
   _myRigidbody: {fileID: 1624030873389821221}
 --- !u!54 &1624030873389821221
 Rigidbody:
@@ -323,7 +289,6 @@ GameObject:
   - component: {fileID: 4752938855942765187}
   - component: {fileID: 4752938855932612713}
   - component: {fileID: 3424856615433267996}
-  - component: {fileID: 9037783185712316584}
   m_Layer: 6
   m_Name: LightSaber-Blade
   m_TagString: Sword
@@ -428,167 +393,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.16570915, y: 3.0249658, z: 0.08153532}
   m_Center: {x: -0.0154896965, y: 1.5440356, z: 0.016070362}
---- !u!114 &9037783185712316584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4752938855943705719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3200e61d8e7a96743982748db577fcbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagli:
-  - {fileID: 7133524049276894225}
-  - {fileID: 9106196487805207581}
---- !u!1 &7219077565066887702
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6632709869280881603}
-  - component: {fileID: 1688120199473964823}
-  - component: {fileID: 2765683673971409831}
-  - component: {fileID: 9106196487805207581}
-  m_Layer: 6
-  m_Name: Cut_Plane1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6632709869280881603
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7219077565066887702}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6777, y: -0, z: -0.0025}
-  m_LocalScale: {x: 0.090541996, y: 1, z: 0.024995606}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 860331472227989070}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1688120199473964823
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7219077565066887702}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &2765683673971409831
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7219077565066887702}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &9106196487805207581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7219077565066887702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9a81818fe8d73429352b54b15aa3d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialAfterSlice: {fileID: 2100000, guid: a28bc46fe61ec46459b3c7963146ff11, type: 2}
-  sliceMask:
-    serializedVersion: 2
-    m_Bits: 4096
-  isCut: 0
---- !u!1 &7692372420491118173
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7909318487412450071}
-  - component: {fileID: 2646372741460100518}
-  - component: {fileID: 3462211104540578635}
-  - component: {fileID: 7133524049276894225}
-  m_Layer: 6
-  m_Name: Cut_Plane
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7909318487412450071
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7692372420491118173}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.6763, y: -0.0157, z: 0}
-  m_LocalScale: {x: 0.090270005, y: 1, z: 0.023016643}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 860331472227989070}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!33 &2646372741460100518
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7692372420491118173}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &3462211104540578635
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7692372420491118173}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &7133524049276894225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7692372420491118173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9a81818fe8d73429352b54b15aa3d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialAfterSlice: {fileID: 2100000, guid: a28bc46fe61ec46459b3c7963146ff11, type: 2}
-  sliceMask:
-    serializedVersion: 2
-    m_Bits: 4096
-  isCut: 0
 --- !u!1 &8445662857286153106
 GameObject:
   m_ObjectHideFlags: 0
