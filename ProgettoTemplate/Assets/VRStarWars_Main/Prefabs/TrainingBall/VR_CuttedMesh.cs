@@ -7,7 +7,6 @@ using UnityEngine.XR.Interaction.Toolkit;
     {
         [RequireComponent(typeof(Rigidbody))]
         [RequireComponent(typeof(MeshCollider))]
-        [RequireComponent(typeof(XRGrabInteractable))]
         public class VR_CuttedMesh : MonoBehaviour
         {
 
@@ -15,15 +14,14 @@ using UnityEngine.XR.Interaction.Toolkit;
         public float delayCut = 1f;
             
         XRGrabInteractable _myGrabController;
-        InteractionLayerMask layerToGrab = InteractionLayerMask.GetMask("Grab");
 
         void Awake()
         {
             this.GetComponent<MeshCollider>().convex = true;
             _myGrabController = GetComponent<XRGrabInteractable>();
 
-            _myGrabController.throwVelocityScale = 4;
-            _myGrabController.interactionLayers = layerToGrab;
+            _myGrabController = this.gameObject.AddComponent<XRGrabInteractable>();
+           
         }
 
         private void Start()
@@ -32,9 +30,13 @@ using UnityEngine.XR.Interaction.Toolkit;
             {
                 //modifica
                 Destroy(this.gameObject, 5);
-            }
 
-            StartCoroutine(DelayCut());
+                StartCoroutine(DelayCut());
+
+                _myGrabController.throwVelocityScale = 4;
+                _myGrabController.interactionLayers = InteractionLayerMask.GetMask("Default");
+            }
+           
         }
 
         IEnumerator DelayCut()

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeOfMesh:
-  - {fileID: 7890254366181264280}
+  - {fileID: 5707474842330227568}
 --- !u!1 &5707474842330227568
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 6068031299207938725}
   - component: {fileID: 1599998054753823162}
   - component: {fileID: 5668225818478338924}
-  - component: {fileID: 7403807278000482934}
+  - component: {fileID: 206223707980873481}
   m_Layer: 12
   m_Name: enemy_sphere
   m_TagString: Sliceable
@@ -78,14 +78,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5707474842330227568}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0.000000031928, y: -0.000000024644, z: 0.014945}
-  m_LocalScale: {x: 13.930182, y: 13.930182, z: 13.930182}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.016803209, z: 0.010699164}
+  m_LocalScale: {x: 13, y: 13, z: 13}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7834555234244838015}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &8345465985270888047
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -166,8 +166,8 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
---- !u!64 &7403807278000482934
-MeshCollider:
+--- !u!135 &206223707980873481
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -176,10 +176,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 9128488235126759193, guid: b17dc3ed7f04d9744b32fc5454b923a5, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.013
+  m_Center: {x: -0.0000000023283062, y: -0.0009299777, z: 0.0000000013969838}
 --- !u!1001 &1677861210912839650
 PrefabInstance:
   m_ObjectHideFlags: 0
