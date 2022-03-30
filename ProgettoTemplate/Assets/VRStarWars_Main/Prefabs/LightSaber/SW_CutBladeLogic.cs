@@ -23,6 +23,16 @@ namespace SW_VRGame
             if (collision.gameObject.tag != "Sliceable")
                 return;
 
+            //prima dello slice
+            //staccare le mesh child
+            //applicarle una forza esplosiva
+            //REFACToRING
+            if(collision.gameObject.TryGetComponent(out VR_TextRobotDisabble disabble))
+            {
+                disabble.DisassemblePieces();
+            }
+
+
             var subsliced = SliceWithCollision.Slice(transform.up, collision, mat_cubeSlice);
 
             if (collision.gameObject.TryGetComponent(out VR_CuttedMesh cutted))
