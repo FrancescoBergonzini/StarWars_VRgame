@@ -18,6 +18,9 @@ namespace SW_VRGame
         //evento con tipo il delegate indicato sopra
         public Event_Score UpdatescoreEnabler = new Event_Score();
 
+        //particle per ora qua
+        [SerializeField] GameObject _robotShockParticle;
+
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.tag != "Sliceable")
@@ -32,8 +35,13 @@ namespace SW_VRGame
                 disabble.DisassemblePieces();
             }
 
+            //PARTICLE
+            
 
             var subsliced = SliceWithCollision.Slice(transform.up, collision, mat_cubeSlice);
+
+
+            
 
             if (collision.gameObject.TryGetComponent(out VR_CuttedMesh cutted))
             {
@@ -49,11 +57,17 @@ namespace SW_VRGame
             else
             {
                 //mesh tagliata per la prima volta
+                foreach (GameObject slice in subsliced)
+                {
+                    Destroy(Instantiate(_robotShockParticle, slice.transform), 3);
+                }
+                
                 foreach (var slice in subsliced)
                 {
                     //crea due nuove mesh tagliabili
                     slice.AddComponent<VR_CuttedMesh>();
                 }
+
                 //assegna punti
                 UpdatescoreEnabler.Invoke(1); //passo 1, come parametro
             }
