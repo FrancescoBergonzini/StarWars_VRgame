@@ -364,7 +364,7 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!21 &1094241839
+--- !u!21 &813173691
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -689,7 +689,7 @@ PrefabInstance:
     - target: {fileID: 1596364426174759082, guid: 6a9f5998ba57462408305e9921c7def6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2012597278347883256, guid: 6a9f5998ba57462408305e9921c7def6,
         type: 3}
@@ -1139,7 +1139,7 @@ PrefabInstance:
     - target: {fileID: 7637568442282021197, guid: 85cf9d8b685772a4295c762b5544695d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85cf9d8b685772a4295c762b5544695d, type: 3}
