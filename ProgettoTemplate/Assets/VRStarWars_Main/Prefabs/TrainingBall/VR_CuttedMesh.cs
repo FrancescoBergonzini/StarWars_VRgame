@@ -28,12 +28,9 @@ using UnityEngine.XR.Interaction.Toolkit;
         {
             if (this.gameObject != null)
             {
-                //modifica
-                Destroy(this.gameObject, 5);
-
                 StartCoroutine(DelayCut());
 
-                _myGrabController.throwVelocityScale = 4;
+                _myGrabController.throwVelocityScale = 2;
                 _myGrabController.interactionLayers = InteractionLayerMask.GetMask("Default");
             }
            

@@ -52,13 +52,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _Glitch_stregh: 0.1
-    - _Metalic: 2.21
+    - _Metalic: 0.43
     - _Noise_scale: 500
     - _Noise_streght: 0.2
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Scroll_speed: 0.05
-    - _Smoothless: 0.52
+    - _Smoothless: 0.67
     - _scaline_offset: 0
     m_Colors:
     - _Albedo: {r: 5.3403134, g: 0, b: 0, a: 1}

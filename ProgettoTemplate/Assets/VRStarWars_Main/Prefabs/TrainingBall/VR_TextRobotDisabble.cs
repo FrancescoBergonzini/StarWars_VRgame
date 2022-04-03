@@ -15,6 +15,7 @@ namespace SW_VRGame
                 pezzo.gameObject.transform.parent = null;
                 pezzo.useGravity = true;
                 pezzo.isKinematic = false;
+                pezzo.GetComponent<MeshCollider>().enabled = true; //refactoring
             }
         }
     }
