@@ -30,27 +30,21 @@ namespace SW_VRGame
             //staccare le mesh child
             //applicarle una forza esplosiva
             //REFACToRING
-            if(collision.gameObject.TryGetComponent(out VR_TextRobotDisabble disabble))
+            if(collision.gameObject.TryGetComponent(out SW_RobotPiece disabble))
             {
                 disabble.DisassemblePieces();
             }
 
-            //PARTICLE
-            
-
             var subsliced = SliceWithCollision.Slice(transform.up, collision, mat_cubeSlice);
 
-
-            
-
-            if (collision.gameObject.TryGetComponent(out VR_CuttedMesh cutted))
+            if (collision.gameObject.TryGetComponent(out SW_RobotCutted cutted))
             {
                 //se trova già il component significa che è una mesh già tagliata
                 if(cutted.sliceCounter > 0)
                 {                   
                     foreach (var slice in subsliced)
                     {
-                        slice.AddComponent<VR_CuttedMesh>().sliceCounter = cutted.sliceCounter - 1;
+                        slice.AddComponent<SW_RobotCutted>().sliceCounter = cutted.sliceCounter - 1;
                     }
                 }               
             }
@@ -59,13 +53,14 @@ namespace SW_VRGame
                 //mesh tagliata per la prima volta
                 foreach (GameObject slice in subsliced)
                 {
+                    //PARTICLE
                     Destroy(Instantiate(_robotShockParticle, slice.transform), 3);
                 }
                 
                 foreach (var slice in subsliced)
                 {
                     //crea due nuove mesh tagliabili
-                    slice.AddComponent<VR_CuttedMesh>();
+                    slice.AddComponent<SW_RobotCutted>();
                 }
 
                 //assegna punti

@@ -7,7 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
     {
         [RequireComponent(typeof(Rigidbody))]
         [RequireComponent(typeof(MeshCollider))]
-        public class VR_CuttedMesh : MonoBehaviour
+        public class SW_RobotCutted : MonoBehaviour
         {
 
         public int sliceCounter = 2;

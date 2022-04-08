@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SW_VRGame
 {
-    public class VR_TextRobotDisabble : MonoBehaviour
+    public class SW_RobotPiece : MonoBehaviour
     {
         [SerializeField] Rigidbody[] pieces;
 

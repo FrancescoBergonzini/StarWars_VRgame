@@ -6,7 +6,7 @@ using UnityEngine.Events;
 namespace SW_VRGame
 {
 
-    public class VR_TrainingBall : Item, IPausable
+    public class SW_TrainingBall : Item, IPausable
     {
         ConstantForce _myforce;
         Rigidbody _rdb;
@@ -14,9 +14,9 @@ namespace SW_VRGame
         //
         [SerializeField] GameObject[] typeOfMesh;
 
-        public static VR_TrainingBall Create(VR_TrainingBall prefab, Vector3 Tposition, float force)
+        public static SW_TrainingBall Create(SW_TrainingBall prefab, Vector3 Tposition, float force)
         {
-            VR_TrainingBall ball = Instantiate(prefab, Tposition, Quaternion.identity);
+            SW_TrainingBall ball = Instantiate(prefab, Tposition, Quaternion.identity);
 
             ball.ChooseRandomMesh(); //da sistemare
             ball.ApplyMyLaunchForce(force);

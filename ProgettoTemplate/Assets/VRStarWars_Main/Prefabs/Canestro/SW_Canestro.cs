@@ -4,17 +4,18 @@ using UnityEngine;
 
 namespace SW_VRGame
 {
-    public class Canestro : MonoBehaviour
+    public class SW_Canestro : Singleton<SW_Canestro>
     {
-        TemplateGameManager currentScene_GameManager;
+        [SerializeField] TemplateGameManager currentScene_GameManager;
 
-        private void Awake()
-        {
-            
+        protected override void OnAwake()
+        {         
             if (currentScene_GameManager == null)
             {
                 currentScene_GameManager = FindObjectOfType<TemplateGameManager>();
             }
+
+            base.OnAwake();
             
         }
 
@@ -22,11 +23,16 @@ namespace SW_VRGame
         {
             //
             Debug.Log("Collisione di " + collision.gameObject.name);
+
+            //check ottimizzato => distruggi tutto, ma assegna punto solo per Oggetto giusto
+
+            collision.collider.enabled = false;
             Destroy(collision.gameObject);
 
             SW_CutBladeLogic.Instance.UpdatescoreEnabler.AddListener(UpdateScore);
         }
 
+        //aggiorno punteggio
         void UpdateScore(int value)
         {
             currentScene_GameManager.gameScore += value;

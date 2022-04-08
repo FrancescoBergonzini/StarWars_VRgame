@@ -6,14 +6,21 @@ namespace SW_VRGame
 {
     public class SW_SpawnManager : Singleton<SW_SpawnManager>
     {
-        [SerializeField] SW_Spawner[] allSpawner;
+        [Header("Game loop elements")]
+        [SerializeField] Transform[] spawnPosition;
         [SerializeField] float launchforce;
-
         [SerializeField] float delay;
-        [SerializeField] VR_TrainingBall prefab_ball;
-        //
+        [SerializeField] SW_TrainingBall prefab_ball;
+        [SerializeField] int maxEnemyforWave;
 
+        [Space]
         [SerializeField] TemplateGameManager currentScene_GameManager;
+
+        //
+        [Space]      
+        public bool game_loop;
+        Coroutine _game_loop = null; //null quando gioco è non avviato
+
 
         protected override void OnAwake()
         {
@@ -26,20 +33,26 @@ namespace SW_VRGame
             base.OnAwake();
         }
 
-        private void Start()
+        private void Update()
         {
-            //mi iscrivo all'evento spada per sapere quando aggiornare lo score
-            SW_CutBladeLogic.Instance.UpdatescoreEnabler.AddListener(UpdateScore);
-
-            Test_SpawnBasicRoutine(delay);
+            //debug
+            if (_game_loop == null)
+            {
+                game_loop = false;
+            }
+            else game_loop = true;
         }
 
-        void Test_SpawnBasicRoutine(float delay)
+        public void Test_SpawnBasicRoutine()
         {
+            if (_game_loop != null)
+                return;
 
-            IEnumerator spawnBasicRoutine(float delay)
+            IEnumerator spawnBasicRoutine()
             {
-                while (true)
+                int enemySpawn = 0;           
+
+                while (enemySpawn < maxEnemyforWave)
                 {
                     Debug.Log("Spawn una mesh");
                     var variaDelay = Random.Range(delay - 1f, delay + 1f);
@@ -48,21 +61,24 @@ namespace SW_VRGame
                     //test movimento con transform
                     var variaForza = Random.Range(launchforce - 2, launchforce + 2);
 
-                    var newball = VR_TrainingBall.Create(prefab_ball, allSpawner[Random.Range(0, allSpawner.Length)].transform.position, variaForza);
-                    
+                    var newball = SW_TrainingBall.Create(prefab_ball, spawnPosition[Random.Range(0, spawnPosition.Length)].transform.position, variaForza);
+
+                    enemySpawn++;
+
+                    //implementa aumento difficoltà
 
                     yield return new WaitForSeconds(variaDelay);
                 }
 
+                Debug.LogWarning("Terminato ciclo wave");
+                _game_loop = null;
+
             }
 
-            StartCoroutine(spawnBasicRoutine(delay));
+            _game_loop = StartCoroutine(spawnBasicRoutine());
         }
 
-        void UpdateScore(int value)
-        {
-            currentScene_GameManager.gameScore += value;
-        }
+        //aggiornamento Score
 
         private void OnDisable()
         {
