@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 793493f1e40c43645bc27fc43646ed15
+guid: 280401972a0017d43a03f5cfd536fdaa
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
@@ -8,72 +8,72 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.008
-    second: {fileID: 2100000, guid: 752383f7157170e4187cf30c3c2d5cde, type: 2}
+    second: {fileID: 2100000, guid: 07a314719fe43f243aeed6cb6aa95c0a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.009
-    second: {fileID: 2100000, guid: c6ccb0e35c4c23d498e4e0314a9fc275, type: 2}
+    second: {fileID: 2100000, guid: 88b6a3bfbb44dd24a8c593d42322f97c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.010
-    second: {fileID: 2100000, guid: 6f0b440a5a6529b4d8c0931cb3ed1ab1, type: 2}
+    second: {fileID: 2100000, guid: d13b1fe14d932c3498cc2d9e4af1e19d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.012
-    second: {fileID: 2100000, guid: ad45cc9022de15342847f018bbf4cef4, type: 2}
+    second: {fileID: 2100000, guid: c6129a5b603184e4daaafcb020c81cdc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.013
-    second: {fileID: 2100000, guid: f36a5dddebab8e24da62db45d4ea97b4, type: 2}
+    second: {fileID: 2100000, guid: 840424f316040f54f8d1103a7f47e770, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: black rubber albedo
-    second: {fileID: 2800000, guid: adb34b537cdad2b48b436b9dcc108332, type: 3}
+    second: {fileID: 2800000, guid: 024a4b56f8241c543b33a40c0ba799a6, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: black rubber norm
-    second: {fileID: 2800000, guid: 94040f558bc154249ada41168f035a31, type: 3}
+    second: {fileID: 2800000, guid: 1057345cfddd0084aa5d03fdb652f869, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: iron_albedo
-    second: {fileID: 2800000, guid: 833c0dafbbc0da9418d7ab9b8a0f108e, type: 3}
+    second: {fileID: 2800000, guid: a98d078fe0bd0a0468cbcf71036ce85c, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: iron_normal
-    second: {fileID: 2800000, guid: aaabe9afc31b1b44790cbf023a166d1b, type: 3}
+    second: {fileID: 2800000, guid: ad77f573d4bd95e48812abb5c17e41eb, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: iron_specular
-    second: {fileID: 2800000, guid: 8c0d8116210d07347917cb0829e0d783, type: 3}
+    second: {fileID: 2800000, guid: adb2bb999b8815740af9ef69d9d443dd, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: metal grid normal
-    second: {fileID: 2800000, guid: e95326c8d06330848b4bcae53e20fbe8, type: 3}
+    second: {fileID: 2800000, guid: e6efbfb9a3f45a442999fbfbb4078212, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: new_quadrati
-    second: {fileID: 2800000, guid: d7ec03dbb188d344385afad8464627ea, type: 3}
+    second: {fileID: 2800000, guid: 3422b1433bde6484abe350a78dece0bf, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: orange plastic albedo
-    second: {fileID: 2800000, guid: 92e4f35caa1911b48b71ba4bc3cd312d, type: 3}
+    second: {fileID: 2800000, guid: 0f3a3299719224c4e91a8d73750bc371, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: orange plastic norm
-    second: {fileID: 2800000, guid: e29eb1df1b1822c4b9260e9d0a8324e4, type: 3}
+    second: {fileID: 2800000, guid: 069983d5b4a47ef41826bd41e70a1cf8, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -102,7 +102,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
