@@ -8,6 +8,9 @@ namespace SW_VRGame
     {
         [SerializeField] TemplateGameManager currentScene_GameManager;
 
+        //genera evento update score al canestro del pezzo nemico
+        public Event_Score Event_UpdateScoreCanestro = new Event_Score();
+
         protected override void OnAwake()
         {         
             if (currentScene_GameManager == null)
@@ -19,24 +22,20 @@ namespace SW_VRGame
             
         }
 
-        private void OnCollisionEnter(Collision collision)
+
+        private void OnTriggerEnter(Collider other)
         {
-            //
-            Debug.Log("Collisione di " + collision.gameObject.name);
+            Debug.LogWarning("Collisione con" + other.name);
 
-            //check ottimizzato => distruggi tutto, ma assegna punto solo per Oggetto giusto
+            //aggiorna punteggio
+            Event_UpdateScoreCanestro.Invoke(3);
 
-            collision.collider.enabled = false;
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
 
-            SW_CutBladeLogic.Instance.UpdatescoreEnabler.AddListener(UpdateScore);
+            
+
         }
 
-        //aggiorno punteggio
-        void UpdateScore(int value)
-        {
-            currentScene_GameManager.gameScore += value;
-        }
     }
 }
 

@@ -30,7 +30,7 @@ using UnityEngine.XR.Interaction.Toolkit;
             {
                 StartCoroutine(DelayCut());
 
-                _myGrabController.throwVelocityScale = 2;
+                _myGrabController.throwVelocityScale = 4;
                 _myGrabController.interactionLayers = InteractionLayerMask.GetMask("Default");
             }
            
@@ -40,7 +40,7 @@ using UnityEngine.XR.Interaction.Toolkit;
         {
             yield return new WaitForSeconds(delayCut);
             //rendile nuovamente tagliabili dopo un secondo
-            this.gameObject.tag = "Sliceable";
+            this.gameObject.tag = Tags.Sliceable;
         }
         }
     }
