@@ -25,8 +25,7 @@ public class TemplateGameManager : Singleton<TemplateGameManager>
     public TemplatePauseEvent PauseEvent { get; protected set; } = new TemplatePauseEvent();
     public TemplateEndEvent EndEvent { get; protected set; } = new TemplateEndEvent();
 
-    //Score
-    public int gameScore = 0;
+
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -48,7 +47,13 @@ public class TemplateGameManager : Singleton<TemplateGameManager>
     {
         PauseEvent.Invoke(true);
         foreach (IPausable pausable in environment.GetComponentsInChildren<IPausable>(true))
-            if(pausable.IsPausable) pausable.Pause(true);
+        {
+            if (pausable.IsPausable)
+            {
+                pausable.Pause(true);
+            }              
+        }
+            
     }
 
     public void EndGame()

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7834555234244838015}
   - component: {fileID: 608274008086565439}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: VR_TrainingBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,8 +24,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3278863255835011653}
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.0057298085, y: 0, z: 0.055204824}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 7145411203505716268}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &608274008086565439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,8 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeOfMesh:
   - {fileID: 7903908877420279019}
-  - {fileID: 5724579558486069542}
   - {fileID: 7521654648747173526}
+  - {fileID: 5724579558486069542}
 --- !u!1001 &3375012720244295879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,10 +58,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7834555234244838015}
     m_Modifications:
+    - target: {fileID: 2273710969862761134, guid: f54c3a4d87e83d54bbc8ab60e7422fb4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3542411231280633126, guid: f54c3a4d87e83d54bbc8ab60e7422fb4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3542411231280633126, guid: f54c3a4d87e83d54bbc8ab60e7422fb4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00010377676
+      objectReference: {fileID: 0}
+    - target: {fileID: 3542411231280633126, guid: f54c3a4d87e83d54bbc8ab60e7422fb4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3612032799999514194, guid: f54c3a4d87e83d54bbc8ab60e7422fb4,
         type: 3}
       propertyPath: m_Layer
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029487384242750833, guid: f54c3a4d87e83d54bbc8ab60e7422fb4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029487384242750833, guid: f54c3a4d87e83d54bbc8ab60e7422fb4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7036802849628510689, guid: f54c3a4d87e83d54bbc8ab60e7422fb4,
         type: 3}
@@ -137,6 +167,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316884958176383368, guid: f54c3a4d87e83d54bbc8ab60e7422fb4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8481069611313063662, guid: f54c3a4d87e83d54bbc8ab60e7422fb4,
         type: 3}
@@ -250,6 +285,7 @@ MonoBehaviour:
   pieces:
   - {fileID: 7046664557095992954}
   - {fileID: 13679200271532962}
+  timeForDissolve: 2
 --- !u!1 &6585595055123918377 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8481069611313063662, guid: f54c3a4d87e83d54bbc8ab60e7422fb4,
@@ -377,6 +413,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261840207049850721, guid: 8773846cc0bb05645a85dfcc4d194c10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8577450735464418296, guid: 8773846cc0bb05645a85dfcc4d194c10,
         type: 3}
@@ -526,6 +567,7 @@ MonoBehaviour:
   pieces:
   - {fileID: 4805880020696519277}
   - {fileID: 783453233692902728}
+  timeForDissolve: 2
 --- !u!1001 &6986462815028565319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -803,3 +845,4 @@ MonoBehaviour:
   - {fileID: 4018022039081148461}
   - {fileID: 1721037747218070011}
   - {fileID: 5734367846530719483}
+  timeForDissolve: 2

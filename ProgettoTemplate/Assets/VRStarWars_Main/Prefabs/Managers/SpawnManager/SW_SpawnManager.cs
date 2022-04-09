@@ -12,6 +12,7 @@ namespace SW_VRGame
         [SerializeField] float delay;
         [SerializeField] SW_TrainingBall prefab_ball;
         [SerializeField] int maxEnemyforWave;
+        [SerializeField] Transform tranform_parent;
 
         [Space]
         [SerializeField] TemplateGameManager currentScene_GameManager;
@@ -61,16 +62,19 @@ namespace SW_VRGame
                     //test movimento con transform
                     var variaForza = Random.Range(launchforce - 2, launchforce + 2);
 
-                    var newball = SW_TrainingBall.Create(prefab_ball, spawnPosition[Random.Range(0, spawnPosition.Length)].transform.position, variaForza);
+                    var newball = SW_TrainingBall.Create(prefab_ball, spawnPosition[Random.Range(0, spawnPosition.Length)].transform.position, variaForza, tranform_parent);
 
                     enemySpawn++;
 
                     //implementa aumento difficoltà
+                    delay -= (delay / (maxEnemyforWave - enemySpawn));
 
                     yield return new WaitForSeconds(variaDelay);
                 }
 
                 Debug.LogWarning("Terminato ciclo wave");
+                //despown pezzi rimasti
+
                 _game_loop = null;
 
             }
@@ -83,6 +87,24 @@ namespace SW_VRGame
         private void OnDisable()
         {
             //qua dovrei fare l'unsubscribe, ma in realtà questo oggetto è sempre in scena quindi evito
+        }
+
+        //collider child gestisce distruzione robot nel caso player non li prenda
+        private void OnCollisionEnter(Collision collision)
+        {
+
+            Debug.Log("Colliso nel box");
+
+            //se sono robot
+            if(collision.gameObject.tag == Tags.Sliceable)
+            {
+                //danneggia il player
+
+                //distruggi il robot
+                Destroy(collision.gameObject);
+            }
+
+
         }
 
     }

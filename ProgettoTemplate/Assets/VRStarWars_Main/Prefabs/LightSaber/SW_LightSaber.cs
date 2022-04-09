@@ -34,17 +34,25 @@ namespace SW_VRGame
             //Accendo il laser se il transform del local scale di y è minore del fullsize di y
             if (isPaused && laser.transform.localScale.y < fullSize.y)
             {
+                //ATTIVO
                 laser.transform.localScale += new Vector3(0, 0.0001f, 0);
                 isPaused = true;
                 swordCollider.enabled = true;
+
+                //pausa disattivata
+                SW_GameManager.Instance.ResumeGame();
             }
             else
             {
+                //SPENTO
                 if (!isPaused && laser.transform.localScale.y >= 0.0001)
                 {
                     laser.transform.localScale += new Vector3(0, -0.0001f, 0);
                     isPaused = false;
                     swordCollider.enabled = false;
+
+                    //pausa attivata
+                    SW_GameManager.Instance.PauseGame();
                 }
             }
 

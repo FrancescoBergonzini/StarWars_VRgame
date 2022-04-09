@@ -5,8 +5,6 @@ using UnityEngine.Events;
 
 namespace SW_VRGame
 {
-    //evento Unity, publisher
-    public class Event_Score : UnityEvent<int> { }
 
     /// <summary>
     /// Classe con logica per il cut delle mesh + update dello score
@@ -15,11 +13,11 @@ namespace SW_VRGame
     {
         [SerializeField] Material mat_cubeSlice;
 
-        //evento con tipo il delegate indicato sopra
-        public Event_Score UpdatescoreEnabler = new Event_Score();
-
         //particle per ora qua
         [SerializeField] GameObject _robotShockParticle;
+
+        //genera evento update score al cut del nemico
+        public Event_Score Event_UpdateScoreBlade = new Event_Score();
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -28,8 +26,6 @@ namespace SW_VRGame
 
             //prima dello slice
             //staccare le mesh child
-            //applicarle una forza esplosiva
-            //REFACToRING
             if(collision.gameObject.TryGetComponent(out SW_RobotPiece disabble))
             {
                 disabble.DisassemblePieces();
@@ -63,8 +59,9 @@ namespace SW_VRGame
                     slice.AddComponent<SW_RobotCutted>();
                 }
 
-                //assegna punti
-                UpdatescoreEnabler.Invoke(1); //passo 1, come parametro
+                //lancio evento +1 score
+                Event_UpdateScoreBlade.Invoke(1);
+
             }
 
         }
