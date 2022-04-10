@@ -52,6 +52,15 @@ public class HandInputHandler : MonoBehaviour
         if (SW_VRGame.SW_LightSaber.isBeenGrabbed) //funziona solo se spada grabbata
         {
             SW_VRGame.SW_LightSaber.isPaused = !SW_VRGame.SW_LightSaber.isPaused;
+
+            if (SW_VRGame.SW_LightSaber.isPaused)
+            {
+                SW_VRGame.SW_GameManager.Instance.ResumeGame();
+            }
+            else
+            {
+                SW_VRGame.SW_GameManager.Instance.PauseGame();
+            }
         }
         else 
         { 

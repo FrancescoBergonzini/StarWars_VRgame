@@ -36,15 +36,57 @@ namespace SW_VRGame
         }
 
 
-        private void Update()
+        protected void Update()
         {
             //
+            if(GameIsInPause)
+                UI_score.text = "PAUSE";
+            else
             UI_score.text = gameScore.ToString();
+
+            /*
+            if (METTIGameInPausa)
+            {
+                PauseGame();
+                METTIGameInPausa = false;
+
+                //questo realmente va metto true quando il gioco è in pausa
+                GameIsInPause = true;
+
+                my_SpawnManager.StopLoopCoroutine();
+
+            }
+
+            if (RESUMEGameInPausa)
+            {
+                ResumeGame();
+                RESUMEGameInPausa = false;
+
+                GameIsInPause = false;
+
+                my_SpawnManager.Test_SpawnBasicRoutine();
+
+            }
+            */
         }
 
         private void Start()
         {
             my_SpawnManager.Test_SpawnBasicRoutine();
+        }
+
+        //
+        public override void ResumeGame()
+        {
+            my_SpawnManager.Test_SpawnBasicRoutine();
+            base.ResumeGame();
+
+        }
+
+        public override void PauseGame()
+        {
+            my_SpawnManager.StopLoopCoroutine();
+            base.PauseGame();
         }
 
         //

@@ -39,25 +39,41 @@ namespace SW_VRGame
 
         void ApplyMyLaunchForce(float force)
         {
-            _myforce.force = new Vector3(0, 0, force);
-            currentForceAppliedInCreate = force;
+            if(_myforce != null)
+            {
+                _myforce.force = new Vector3(0, 0, force);
+                currentForceAppliedInCreate = force;
+            }
+            
         }
 
+
+        private void Start()
+        {
+            IsPausable = true;
+        }
 
         #region Pausable
         public bool IsPausable { get; set; }
 
         public void Pause(bool Pause)
         {
+            if (this.gameObject == null)
+                return;
+
+            Debug.Log("cHIAMATO PAUSE" + Pause + "DA" + gameObject.name);
+            
             //li fermo in aria
             if (Pause)
             {
-                _myforce.force = new Vector3(0, 0, 0);
+                _rdb.isKinematic = true;
+                
             }
             else
             {
-                this.ApplyMyLaunchForce(currentForceAppliedInCreate);
+                _rdb.isKinematic = false;
             }
+            
         }
 
        

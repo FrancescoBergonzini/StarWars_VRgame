@@ -19,6 +19,7 @@ public class TemplateGameManager : Singleton<TemplateGameManager>
    
     [SerializeField]
     protected GameObject environment;
+    public bool GameIsInPause { get; protected set; }
 
 
     public TemplateStartEvent StartEvent { get; protected set; } = new TemplateStartEvent();
@@ -36,16 +37,21 @@ public class TemplateGameManager : Singleton<TemplateGameManager>
         StartEvent.Invoke();
     }
 
-    public void ResumeGame()
+    public virtual void ResumeGame()
     {
+
         PauseEvent.Invoke(false);
+        GameIsInPause = false;
+
         foreach (IPausable pausable in environment.GetComponentsInChildren<IPausable>(true))
             pausable.Pause(false);
     }
 
-    public void PauseGame()
+    public virtual void PauseGame()
     {
         PauseEvent.Invoke(true);
+        GameIsInPause = true;
+
         foreach (IPausable pausable in environment.GetComponentsInChildren<IPausable>(true))
         {
             if (pausable.IsPausable)
@@ -62,4 +68,17 @@ public class TemplateGameManager : Singleton<TemplateGameManager>
         EndEvent.Invoke();
     }
 
+    
+
+    //PAUSA
+    //PREMENDO IL TASTO CHE SPEGNE LA SPADA => INPUT PAUSA ok
+    //NEMICI NON VENGONO PIU' SPAWNATI ok
+    //FERMARE IN ARIA I NEMICI IN SCENA ok
+    //DISABILITARE RAYCAST MANO (ATTIVARE SEMPRE RECUPERO SPADA DOPO 5S RIMETTE SUL PIEDISTALLO) da fare
+
+
+    //PAUSA ATTIVATA, PREMO IL TASTO CHE ACCENDA LA SPADA => INPUT RESUME
+    //SPAWN NEMICI RIPRENDE DA DOVE SI ERA FERMATO ok
+    //NEMICI IN ARIA RIATTIVATI ok
+    //RIATTIVARE RAYCAST MANO da fare
 }

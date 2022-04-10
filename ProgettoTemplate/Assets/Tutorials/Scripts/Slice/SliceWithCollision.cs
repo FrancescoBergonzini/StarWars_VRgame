@@ -14,7 +14,17 @@ public class SliceWithCollision
         var sliceHull = collision.gameObject.Slice(firstContactPoint.point, slicePlaneNormal, crossMaterial);
         gameObjects[0] = sliceHull.CreateLowerHull(collision.collider.gameObject, crossMaterial);
         gameObjects[1] = sliceHull.CreateUpperHull(collision.collider.gameObject, crossMaterial);
-        GameObject.Destroy(collision.collider.gameObject);
+
+        //se ha un parante significa che è un TrainingBall originale e non un hull post taglio
+        if(collision.collider.transform.parent != null)
+        {
+            GameObject.Destroy(collision.collider.gameObject.transform.parent.gameObject);
+        }
+        else 
+        { 
+            GameObject.Destroy(collision.collider.gameObject);
+        }
+        
         return gameObjects;
     }
 

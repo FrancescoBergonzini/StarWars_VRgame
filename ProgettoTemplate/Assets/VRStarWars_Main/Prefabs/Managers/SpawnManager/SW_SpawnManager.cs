@@ -17,11 +17,7 @@ namespace SW_VRGame
         [Space]
         [SerializeField] TemplateGameManager currentScene_GameManager;
 
-        //
-        [Space]      
-        public bool game_loop;
-        Coroutine _game_loop = null; //null quando gioco è non avviato
-
+        [SerializeField] Coroutine current_GameLoop = null;
 
         protected override void OnAwake()
         {
@@ -34,78 +30,52 @@ namespace SW_VRGame
             base.OnAwake();
         }
 
-        private void Update()
-        {
-            //debug
-            if (_game_loop == null)
-            {
-                game_loop = false;
-            }
-            else game_loop = true;
-        }
 
-        public void Test_SpawnBasicRoutine()
+        public void Test_SpawnBasicRoutine() //per avviare una nuova partita, questo va resettato
         {
-            if (_game_loop != null)
+            if (current_GameLoop != null)
                 return;
 
             IEnumerator spawnBasicRoutine()
             {
-                int enemySpawn = 0;           
-
-                while (enemySpawn < maxEnemyforWave)
+                while (maxEnemyforWave > 0)
                 {
-                    Debug.Log("Spawn una mesh");
-                    var variaDelay = Random.Range(delay - 1f, delay + 1f);
-                    //choose random spawner
+                    //wait
+                    delay = Random.Range(delay - 0.5f, delay + 0.5f);
+                    delay -= (delay / maxEnemyforWave);
 
-                    //test movimento con transform
+                    if (delay < 0.5)
+                        delay = 0.5f;
+
+                    yield return new WaitForSeconds(delay);
+
+                    //varietà                  
                     var variaForza = Random.Range(launchforce - 2, launchforce + 2);
 
+                    //spawn
                     var newball = SW_TrainingBall.Create(prefab_ball, spawnPosition[Random.Range(0, spawnPosition.Length)].transform.position, variaForza, tranform_parent);
 
-                    enemySpawn++;
-
-                    //implementa aumento difficoltà
-                    delay -= (delay / (maxEnemyforWave - enemySpawn));
-
-                    yield return new WaitForSeconds(variaDelay);
+                    maxEnemyforWave--;
+                   
                 }
 
                 Debug.LogWarning("Terminato ciclo wave");
                 //despown pezzi rimasti
 
-                _game_loop = null;
-
             }
 
-            _game_loop = StartCoroutine(spawnBasicRoutine());
+            current_GameLoop = StartCoroutine(spawnBasicRoutine());
         }
 
-        //aggiornamento Score
-
-        private void OnDisable()
+        public void StopLoopCoroutine()
         {
-            //qua dovrei fare l'unsubscribe, ma in realtà questo oggetto è sempre in scena quindi evito
-        }
-
-        //collider child gestisce distruzione robot nel caso player non li prenda
-        private void OnCollisionEnter(Collision collision)
-        {
-
-            Debug.Log("Colliso nel box");
-
-            //se sono robot
-            if(collision.gameObject.tag == Tags.Sliceable)
+            if(current_GameLoop != null)
             {
-                //danneggia il player
-
-                //distruggi il robot
-                Destroy(collision.gameObject);
+                StopCoroutine(current_GameLoop);
+                current_GameLoop = null;
             }
-
-
         }
+
 
     }
 }

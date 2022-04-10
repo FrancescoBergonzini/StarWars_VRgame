@@ -31,6 +31,7 @@ namespace SW_VRGame
         // Update is called once per frame
         void Update()
         {
+            //da sistemare REFACTORING
             //Accendo il laser se il transform del local scale di y è minore del fullsize di y
             if (isPaused && laser.transform.localScale.y < fullSize.y)
             {
@@ -38,9 +39,6 @@ namespace SW_VRGame
                 laser.transform.localScale += new Vector3(0, 0.0001f, 0);
                 isPaused = true;
                 swordCollider.enabled = true;
-
-                //pausa disattivata
-                SW_GameManager.Instance.ResumeGame();
             }
             else
             {
@@ -51,8 +49,6 @@ namespace SW_VRGame
                     isPaused = false;
                     swordCollider.enabled = false;
 
-                    //pausa attivata
-                    SW_GameManager.Instance.PauseGame();
                 }
             }
 

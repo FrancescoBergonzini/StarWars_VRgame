@@ -57,5 +57,5 @@ Material:
     - _time: 0.5
     - _twirl_strengh: 8
     m_Colors:
-    - _Color: {r: 1.9745623, g: 3.6958954, b: 11.313708, a: 1}
+    - _Color: {r: 12.967232, g: 2.5078137, b: 2.5078137, a: 1}
   m_BuildTextureStacks: []
