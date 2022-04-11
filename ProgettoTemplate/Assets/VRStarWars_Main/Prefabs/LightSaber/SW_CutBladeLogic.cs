@@ -18,20 +18,36 @@ namespace SW_VRGame
 
         //genera evento update score al cut del nemico
         public Event_Score Event_UpdateScoreBlade = new Event_Score();
+        public Event_Start Event_StartGame = new Event_Start();
 
         private void OnCollisionEnter(Collision collision)
-        {
+        {       
+
             if (collision.gameObject.tag != "Sliceable")
                 return;
 
+            //SISTEMAS
+            if(SW_SpawnManager.Instance.current_GameLoop == null)
+            {
+                Event_StartGame.Invoke();
+            }
+            
+
             //prima dello slice
             //staccare le mesh child
-            if(collision.gameObject.TryGetComponent(out SW_RobotPiece disabble))
+            if (collision.gameObject.TryGetComponent(out SW_RobotPiece disabble))
             {
                 disabble.DisassemblePieces();
             }
 
             var subsliced = SliceWithCollision.Slice(transform.up, collision, mat_cubeSlice);
+
+            //parento i pezzi al Bin cosi poi posso distruggerli
+            foreach(GameObject subMesh in subsliced)
+            {
+                subMesh.transform.parent = SW_GameManager.Instance.Environment.transform;
+            }
+
 
             if (collision.gameObject.TryGetComponent(out SW_RobotCutted cutted))
             {

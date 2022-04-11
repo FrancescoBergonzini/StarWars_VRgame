@@ -8,6 +8,7 @@ namespace SW_VRGame
 {
     //evento Unity, publisher
     public class Event_Score : UnityEvent<int> { }
+    public class Event_Start : UnityEvent { }
 
     public static class Layers
     {
@@ -29,14 +30,16 @@ namespace SW_VRGame
         //Gamemanager deve ascoltare le chiamate da CutBlade e Cestino e aumentare lo score quando indicato
         public int gameScore = 0;
      
-        [Header("Variabili game loop")]
-        public SW_SpawnManager.SpawnConfigValue config;
+        [Header("Variabili spawn loop")]
+        [SerializeField] SW_SpawnManager.SpawnConfigValue config;
         [SerializeField] SW_SpawnManager.SpawnConfigValue clone_config;
+
 
         protected override void OnAwake()
         {
             SW_CutBladeLogic.Instance.Event_UpdateScoreBlade.AddListener(UpdateScore);
             SW_Canestro.Instance.Event_UpdateScoreCanestro.AddListener(UpdateScore);
+            SW_CutBladeLogic.Instance.Event_StartGame.AddListener(StartNewGame);
         }
 
 
@@ -76,16 +79,13 @@ namespace SW_VRGame
             #endregion
         }
 
-        private void Start()
-        {
-            StartNewGame();
-        }
 
-
-        void StartNewGame()
+        public void StartNewGame()
         {
             //nuova ondata
-            //clone_config = config.
+            clone_config = new SW_SpawnManager.WrapperConfig(config).ReturnValueCopy();
+
+            //clone_config = copy;
             my_SpawnManager.Test_SpawnBasicRoutine(clone_config);
         }
 

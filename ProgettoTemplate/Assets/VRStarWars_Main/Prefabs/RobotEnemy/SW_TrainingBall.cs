@@ -14,6 +14,7 @@ namespace SW_VRGame
 
         //
         [SerializeField] GameObject[] typeOfMesh;
+        [HideInInspector] public Transform robot_active;
 
         public static SW_TrainingBall Create(SW_TrainingBall prefab, Vector3 Tposition, float force, Transform parent)
         {
@@ -31,6 +32,8 @@ namespace SW_VRGame
         {
             //choose one mesh
             var currentMesh = typeOfMesh[Random.Range(0, typeOfMesh.Length)];
+            robot_active = currentMesh.transform;
+
             //da sistemare
             currentMesh.SetActive(true);
             _myforce = currentMesh.GetComponent<ConstantForce>();

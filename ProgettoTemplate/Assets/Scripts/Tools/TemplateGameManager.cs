@@ -19,6 +19,11 @@ public class TemplateGameManager : Singleton<TemplateGameManager>
    
     [SerializeField]
     protected GameObject environment;
+    public GameObject Environment
+    {
+        get { return environment; }
+        private set { environment = value; }
+    }
     public bool GameIsInPause { get; protected set; }
 
 

@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 7903908877420279019}
   - {fileID: 7521654648747173526}
   - {fileID: 5724579558486069542}
+  robot_active: {fileID: 0}
 --- !u!1001 &3375012720244295879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -643,7 +644,7 @@ PrefabInstance:
     - target: {fileID: 618875406086140881, guid: 721797b2d05b0c840bb296dd64c16bd9,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 618875406086140881, guid: 721797b2d05b0c840bb296dd64c16bd9,
         type: 3}
