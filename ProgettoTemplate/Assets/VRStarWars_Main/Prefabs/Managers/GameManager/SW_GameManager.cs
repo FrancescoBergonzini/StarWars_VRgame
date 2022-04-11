@@ -28,6 +28,10 @@ namespace SW_VRGame
         //Score
         //Gamemanager deve ascoltare le chiamate da CutBlade e Cestino e aumentare lo score quando indicato
         public int gameScore = 0;
+     
+        [Header("Variabili game loop")]
+        public SW_SpawnManager.SpawnConfigValue config;
+        [SerializeField] SW_SpawnManager.SpawnConfigValue clone_config;
 
         protected override void OnAwake()
         {
@@ -44,6 +48,7 @@ namespace SW_VRGame
             else
             UI_score.text = gameScore.ToString();
 
+            #region test_debug
             /*
             if (METTIGameInPausa)
             {
@@ -68,17 +73,26 @@ namespace SW_VRGame
 
             }
             */
+            #endregion
         }
 
         private void Start()
         {
-            my_SpawnManager.Test_SpawnBasicRoutine();
+            StartNewGame();
+        }
+
+
+        void StartNewGame()
+        {
+            //nuova ondata
+            //clone_config = config.
+            my_SpawnManager.Test_SpawnBasicRoutine(clone_config);
         }
 
         //
         public override void ResumeGame()
         {
-            my_SpawnManager.Test_SpawnBasicRoutine();
+            my_SpawnManager.Test_SpawnBasicRoutine(clone_config);
             base.ResumeGame();
 
         }
@@ -94,6 +108,9 @@ namespace SW_VRGame
         {
             gameScore += value;
         }
+
+
+
 
 
     }
