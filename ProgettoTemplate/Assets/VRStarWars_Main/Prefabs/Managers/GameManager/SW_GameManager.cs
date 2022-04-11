@@ -23,6 +23,7 @@ namespace SW_VRGame
 
     public class SW_GameManager : TemplateGameManager
     {
+
         [SerializeField] TextMeshProUGUI UI_score;
         [SerializeField] SW_SpawnManager my_SpawnManager; //qua sarebbe meglio usare UnityEvent
 
@@ -40,6 +41,7 @@ namespace SW_VRGame
             SW_CutBladeLogic.Instance.Event_UpdateScoreBlade.AddListener(UpdateScore);
             SW_Canestro.Instance.Event_UpdateScoreCanestro.AddListener(UpdateScore);
             SW_CutBladeLogic.Instance.Event_StartGame.AddListener(StartNewGame);
+
         }
 
 

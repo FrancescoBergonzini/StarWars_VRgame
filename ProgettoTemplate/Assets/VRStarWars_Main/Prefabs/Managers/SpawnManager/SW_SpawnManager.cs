@@ -15,6 +15,8 @@ namespace SW_VRGame
             public SW_TrainingBall prefab_ball;
             public int maxEnemyforWave;
             public Transform tranform_parent;
+            [Space]
+            public GameObject start_Cube;
         }
 
         public class WrapperConfig
@@ -29,6 +31,7 @@ namespace SW_VRGame
                 copy.prefab_ball = my_valueStruct.prefab_ball;
                 copy.maxEnemyforWave = my_valueStruct.maxEnemyforWave;
                 copy.tranform_parent = my_valueStruct.tranform_parent;
+                copy.start_Cube = my_valueStruct.start_Cube;
             }
 
             public SpawnConfigValue ReturnValueCopy() { return copy; }
@@ -53,7 +56,6 @@ namespace SW_VRGame
             base.OnAwake();
 
         }
-
 
 
         public void Test_SpawnBasicRoutine(SpawnConfigValue myconfig) //per avviare una nuova partita, questo va resettato
@@ -89,8 +91,10 @@ namespace SW_VRGame
                 }
 
                 Debug.LogWarning("Terminato ciclo wave");
-                yield return new WaitForSeconds(20f);
+                yield return new WaitForSeconds(10f); //non va
                 EndGameClear(myconfig);
+
+                Debug.Log(Instantiate(myconfig.start_Cube).name);
             }
 
             current_GameLoop = StartCoroutine(spawnBasicRoutine(myconfig));
@@ -111,6 +115,7 @@ namespace SW_VRGame
             //
             foreach (Transform child in myconfig.tranform_parent)
                 Destroy(child.gameObject);
+
         }
 
 
