@@ -443,7 +443,7 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!21 &1210159783
+--- !u!21 &1136264791
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -1465,6 +1465,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trituratore
       objectReference: {fileID: 0}
+    - target: {fileID: 6794919743932793637, guid: ba9062814b10e564b8f09d57fad293ec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba9062814b10e564b8f09d57fad293ec, type: 3}
 --- !u!1001 &7093649507641683314
@@ -1607,6 +1612,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399906673332608912, guid: 9a1cd1ddeaecb5f428dbce306f757bc2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a1cd1ddeaecb5f428dbce306f757bc2, type: 3}
