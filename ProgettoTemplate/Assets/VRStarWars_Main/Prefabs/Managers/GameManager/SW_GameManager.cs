@@ -94,15 +94,23 @@ namespace SW_VRGame
         //
         public override void ResumeGame()
         {
-            my_SpawnManager.Test_SpawnBasicRoutine(clone_config);
-            base.ResumeGame();
+            if(my_SpawnManager.current_GameLoop == null)
+            {
+                my_SpawnManager.Test_SpawnBasicRoutine(clone_config);
+                base.ResumeGame();
+            }
+            
 
         }
 
         public override void PauseGame()
         {
-            my_SpawnManager.StopLoopCoroutine();
-            base.PauseGame();
+            if(my_SpawnManager.current_GameLoop != null)
+            {
+                my_SpawnManager.StopLoopCoroutine();
+                base.PauseGame();
+            }
+            
         }
 
         //

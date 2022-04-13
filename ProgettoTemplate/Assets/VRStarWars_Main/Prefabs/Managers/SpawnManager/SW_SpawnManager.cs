@@ -113,8 +113,12 @@ namespace SW_VRGame
         {
             current_GameLoop = null;
             //
-            foreach (Transform child in myconfig.tranform_parent)
-                Destroy(child.gameObject);
+            if(myconfig.tranform_parent != null && myconfig.tranform_parent.childCount > 0)
+            {
+                foreach (Transform child in myconfig.tranform_parent)
+                    Destroy(child.gameObject);
+            }
+            
 
         }
 
