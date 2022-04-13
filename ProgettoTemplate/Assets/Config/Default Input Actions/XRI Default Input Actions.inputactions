@@ -610,6 +610,17 @@
                     "action": "ActiveDeactiveSword",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bf7394e6-7b81-405c-b203-f3ed6467b200",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "ActiveDeactiveSword",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

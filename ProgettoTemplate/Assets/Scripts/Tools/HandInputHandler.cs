@@ -31,7 +31,6 @@ public class HandInputHandler : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Script set Input enable sword");
         SetSwordStatus.action.performed += SetSword;
     }
 
