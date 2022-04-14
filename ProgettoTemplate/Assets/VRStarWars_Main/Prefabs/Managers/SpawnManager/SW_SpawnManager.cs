@@ -118,6 +118,9 @@ namespace SW_VRGame
                 foreach (Transform child in myconfig.tranform_parent)
                     Destroy(child.gameObject);
             }
+
+            //UI
+            SW_GameManager.Instance.UpdateScoreEndGame();
             
 
         }

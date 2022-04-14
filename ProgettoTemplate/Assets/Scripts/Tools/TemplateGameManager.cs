@@ -73,7 +73,11 @@ public class TemplateGameManager : Singleton<TemplateGameManager>
         EndEvent.Invoke();
     }
 
-    
+    //
+    public virtual void UpdateScoreEndGame()
+    {
+        throw new System.NotImplementedException();
+    }
 
     //PAUSA
     //PREMENDO IL TASTO CHE SPEGNE LA SPADA => INPUT PAUSA ok

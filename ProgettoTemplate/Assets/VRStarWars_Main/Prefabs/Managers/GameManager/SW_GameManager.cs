@@ -23,8 +23,12 @@ namespace SW_VRGame
 
     public class SW_GameManager : TemplateGameManager
     {
-
+        [Header("UI direct ref")]
         [SerializeField] TextMeshProUGUI UI_score;
+        [SerializeField] TextMeshProUGUI UI_bestScore;
+        private int bestScore = 0;
+
+        [Space]
         [SerializeField] SW_SpawnManager my_SpawnManager; //qua sarebbe meglio usare UnityEvent
 
         //Score
@@ -47,12 +51,6 @@ namespace SW_VRGame
 
         protected void Update()
         {
-            //
-            if(GameIsInPause)
-                UI_score.text = "PAUSE";
-            else
-            UI_score.text = gameScore.ToString();
-
             #region test_debug
             /*
             if (METTIGameInPausa)
@@ -99,7 +97,9 @@ namespace SW_VRGame
                 my_SpawnManager.Test_SpawnBasicRoutine(clone_config);
                 base.ResumeGame();
             }
-            
+
+            //UI
+            UI_score.text = gameScore.ToString();
 
         }
 
@@ -110,16 +110,33 @@ namespace SW_VRGame
                 my_SpawnManager.StopLoopCoroutine();
                 base.PauseGame();
             }
-            
+
+            //UI
+            UI_score.text = "PAUSE";
+
         }
 
         //
         void UpdateScore(int value)
         {
             gameScore += value;
+
+            //UI
+            UI_score.text = gameScore.ToString();
         }
 
+        public override void UpdateScoreEndGame()
+        {
+            //
+            bestScore = bestScore > gameScore ? bestScore : gameScore;
+            UI_bestScore.text = $"Best score: {bestScore}";
 
+            gameScore = 0;
+            UI_score.text = "Cut the ROBOT\nto START";
+
+
+
+        }
 
 
 
