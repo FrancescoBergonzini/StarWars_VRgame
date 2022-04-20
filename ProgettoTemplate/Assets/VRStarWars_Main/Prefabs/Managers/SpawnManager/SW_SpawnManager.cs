@@ -121,7 +121,13 @@ namespace SW_VRGame
 
             //UI
             SW_GameManager.Instance.UpdateScoreEndGame();
-            
+        }
+
+        public void EndGameforGameOver()
+        {
+            Debug.Log("Game over");
+
+
 
         }
 

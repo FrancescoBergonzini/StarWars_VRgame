@@ -34,6 +34,7 @@ namespace SW_VRGame
         //Score
         //Gamemanager deve ascoltare le chiamate da CutBlade e Cestino e aumentare lo score quando indicato
         public int gameScore = 0;
+        public int playerLife;
      
         [Header("Variabili spawn loop")]
         [SerializeField] SW_SpawnManager.SpawnConfigValue config;
@@ -49,37 +50,6 @@ namespace SW_VRGame
         }
 
 
-        protected void Update()
-        {
-            #region test_debug
-            /*
-            if (METTIGameInPausa)
-            {
-                PauseGame();
-                METTIGameInPausa = false;
-
-                //questo realmente va metto true quando il gioco è in pausa
-                GameIsInPause = true;
-
-                my_SpawnManager.StopLoopCoroutine();
-
-            }
-
-            if (RESUMEGameInPausa)
-            {
-                ResumeGame();
-                RESUMEGameInPausa = false;
-
-                GameIsInPause = false;
-
-                my_SpawnManager.Test_SpawnBasicRoutine();
-
-            }
-            */
-            #endregion
-        }
-
-
         public void StartNewGame()
         {
             //nuova ondata
@@ -87,6 +57,8 @@ namespace SW_VRGame
 
             //clone_config = copy;
             my_SpawnManager.Test_SpawnBasicRoutine(clone_config);
+
+            playerLife = 3;
         }
 
         //
@@ -125,6 +97,24 @@ namespace SW_VRGame
             UI_score.text = gameScore.ToString();
         }
 
+        void DamagePlayer()
+        {
+            if(playerLife > 0)
+            {
+                //danneggio
+            }
+            else
+            {
+                //game Over
+                my_SpawnManager.EndGameforGameOver();
+
+                //UI
+                UpdateScoreEndGame();
+                UI_score.text = "GAME OVER\nCut the ROBOT\nto START";
+
+            }
+        }
+
         public override void UpdateScoreEndGame()
         {
             //
@@ -132,9 +122,7 @@ namespace SW_VRGame
             UI_bestScore.text = $"Best score: {bestScore}";
 
             gameScore = 0;
-            UI_score.text = "Cut the ROBOT\nto START";
-
-
+            UI_score.text = "GOOD GAME\nCut the ROBOT\nto START";
 
         }
 
