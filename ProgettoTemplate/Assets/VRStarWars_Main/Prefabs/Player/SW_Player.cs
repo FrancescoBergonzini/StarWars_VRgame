@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace SW_VRGame
 {
+    /// <summary>
+    /// Non usato, gestisco l'health direttamente dal SW_GameManager
+    /// </summary>
     public class SW_Player : Item
     {
         [Serializable]

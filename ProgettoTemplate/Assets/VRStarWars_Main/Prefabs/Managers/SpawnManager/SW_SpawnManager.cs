@@ -69,10 +69,10 @@ namespace SW_VRGame
                 {
 
                     //wait                   
-                    myconfig.delay -= (myconfig.delay / myconfig.maxEnemyforWave);
+                    //myconfig.delay -= (myconfig.delay / myconfig.maxEnemyforWave);
 
-                    if (myconfig.delay < 0.5)
-                        myconfig.delay = 1f;
+                    //if (myconfig.delay < 0.5)
+                        //myconfig.delay = 1f;
 
                     yield return new WaitForSeconds(myconfig.delay);
 
@@ -91,10 +91,8 @@ namespace SW_VRGame
                 }
 
                 Debug.LogWarning("Terminato ciclo wave");
-                yield return new WaitForSeconds(10f); //non va
-                EndGameClear(myconfig);
+                EndGameClear(myconfig, 15);
 
-                Debug.Log(Instantiate(myconfig.start_Cube).name);
             }
 
             current_GameLoop = StartCoroutine(spawnBasicRoutine(myconfig));
@@ -109,25 +107,33 @@ namespace SW_VRGame
             }
         }
 
-        void EndGameClear(SpawnConfigValue myconfig)
+        //GAME OVER COROUTINES
+        void EndGameClear(SpawnConfigValue myconfig, float timeTowait)
         {
-            current_GameLoop = null;
-            //
-            if(myconfig.tranform_parent != null && myconfig.tranform_parent.childCount > 0)
+            IEnumerator endGameClear()
             {
-                foreach (Transform child in myconfig.tranform_parent)
-                    Destroy(child.gameObject);
+                yield return new WaitForSeconds(timeTowait);
+                current_GameLoop = null;
+                //
+                if (myconfig.tranform_parent != null && myconfig.tranform_parent.childCount > 0)
+                {
+                    foreach (Transform child in myconfig.tranform_parent)
+                        Destroy(child.gameObject);
+                }
+
+                //UI
+                SW_GameManager.Instance.UpdateScoreEndGame();
+
+                Instantiate(myconfig.start_Cube);
             }
 
-            //UI
-            SW_GameManager.Instance.UpdateScoreEndGame();
+            StartCoroutine(endGameClear());
         }
+
 
         public void EndGameforGameOver()
         {
             Debug.Log("Game over");
-
-
 
         }
 

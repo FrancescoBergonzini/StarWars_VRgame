@@ -53,9 +53,9 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _cell_density: 6
-    - _time: 0.5
-    - _twirl_strengh: 87.92
+    - _cell_density: 2.72
+    - _time: 0.59
+    - _twirl_strengh: 38.58
     m_Colors:
     - _Color: {r: 2.270603, g: 0.45174298, b: 0.5587347, a: 1}
   m_BuildTextureStacks: []

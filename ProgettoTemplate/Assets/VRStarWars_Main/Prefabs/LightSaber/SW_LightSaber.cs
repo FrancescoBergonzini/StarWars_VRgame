@@ -7,10 +7,10 @@ namespace SW_VRGame
     /// <summary>
     /// Logica spada base, gestisce attivazione e pausa
     /// </summary>
-    public class SW_LightSaber : Singleton<SW_LightSaber>, IPausable
+    public class SW_LightSaber : Singleton<SW_LightSaber>
     {
-        public static bool isBeenGrabbed;
-        public static bool isPaused; //false
+        public bool isBeenGrabbed;
+        public bool isPaused; //false
 
         [SerializeField] Collider swordCollider;
         [SerializeField] GameObject laser;
@@ -58,19 +58,10 @@ namespace SW_VRGame
         //chiamato dall XR Grab Interactable
         public void SwordGrabbed(bool grabbed)
         {
-            Debug.Log("Stato spada grabbata: " + grabbed);
             isBeenGrabbed = grabbed;
 
         }
 
-        #region Pausable
-        public bool IsPausable => throw new System.NotImplementedException();
-
-        public void Pause(bool Pause)
-        {
-            throw new System.NotImplementedException();
-        }
-        #endregion
     }
 }
 

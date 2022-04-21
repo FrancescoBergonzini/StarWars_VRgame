@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7711841226361661495}
   - component: {fileID: 2586591485268094407}
   m_Layer: 12
-  m_Name: Start_Cube 1
+  m_Name: SW_Start_Cube
   m_TagString: Sliceable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4747761901861227628}
   m_LocalRotation: {x: -0.5855859, y: -0.3963448, z: 0.3963448, w: -0.5855859}
-  m_LocalPosition: {x: -7.066, y: 6, z: -2.046}
+  m_LocalPosition: {x: -7.347, y: 6, z: -2.614}
   m_LocalScale: {x: 150, y: 150, z: 150}
   m_ConstrainProportionsScale: 0
   m_Children: []

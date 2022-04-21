@@ -44,36 +44,27 @@ public class HandInputHandler : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    /// <summary>
+    /// Set Sword determina la stato PAUSA, ma si attiva solo se la spada è grabbata
+    /// </summary>
+    /// <param name="obj"></param>
     private void SetSword(InputAction.CallbackContext obj)
     {
-        Debug.Log("Lancio set sword");
+        if (!SW_VRGame.SW_LightSaber.Instance.isBeenGrabbed)
+            return;
 
-        if (SW_VRGame.SW_LightSaber.isBeenGrabbed) //funziona solo se spada grabbata
+        SW_VRGame.SW_LightSaber.Instance.isPaused = !SW_VRGame.SW_LightSaber.Instance.isPaused;
+
+        if (SW_VRGame.SW_LightSaber.Instance.isPaused)
         {
-            SW_VRGame.SW_LightSaber.isPaused = !SW_VRGame.SW_LightSaber.isPaused;
-
-            if (SW_VRGame.SW_LightSaber.isPaused)
-            {
-                SW_VRGame.SW_GameManager.Instance.ResumeGame();
-            }
-            else
-            {
-                SW_VRGame.SW_GameManager.Instance.PauseGame();
-            }
+            SW_VRGame.SW_GameManager.Instance.ResumeGame();
         }
-        else 
-        { 
-
-            // Move the object upward in world space 1 unit/second.
-            //transform.Translate(Vector3.up * Time.deltaTime, Space.World);         
+        else
+        {
+            SW_VRGame.SW_GameManager.Instance.PauseGame();
         }
     }
 
-    private void Update()
-    {
-        // Move our position a step closer to the target.
-        
-    }
 
     /// <summary>
     /// Per utilizzare la vibrazione del controller

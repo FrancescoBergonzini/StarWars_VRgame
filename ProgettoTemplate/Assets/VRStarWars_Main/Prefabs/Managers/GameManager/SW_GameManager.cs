@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace SW_VRGame
 {
@@ -26,7 +27,11 @@ namespace SW_VRGame
         [Header("UI direct ref")]
         [SerializeField] TextMeshProUGUI UI_score;
         [SerializeField] TextMeshProUGUI UI_bestScore;
+        [SerializeField] Image[] life_icons;
         private int bestScore = 0;
+
+        [Space]
+        [SerializeField] SW_EndGameCollider my_colliderGAmeOver;
 
         [Space]
         [SerializeField] SW_SpawnManager my_SpawnManager; //qua sarebbe meglio usare UnityEvent
@@ -46,6 +51,7 @@ namespace SW_VRGame
             SW_CutBladeLogic.Instance.Event_UpdateScoreBlade.AddListener(UpdateScore);
             SW_Canestro.Instance.Event_UpdateScoreCanestro.AddListener(UpdateScore);
             SW_CutBladeLogic.Instance.Event_StartGame.AddListener(StartNewGame);
+            my_colliderGAmeOver.checkRobotCollision += DamagePlayer;
 
         }
 
@@ -58,7 +64,7 @@ namespace SW_VRGame
             //clone_config = copy;
             my_SpawnManager.Test_SpawnBasicRoutine(clone_config);
 
-            playerLife = 3;
+            RestorePlayerHealth();
         }
 
         //
@@ -71,6 +77,11 @@ namespace SW_VRGame
             }
 
             //UI
+            if(gameScore == 0)
+            {
+                UI_score.text = "Cut the ROBOT\nto START";
+            }
+            else
             UI_score.text = gameScore.ToString();
 
         }
@@ -91,6 +102,9 @@ namespace SW_VRGame
         //
         void UpdateScore(int value)
         {
+            if (my_SpawnManager.current_GameLoop == null)
+                return;
+
             gameScore += value;
 
             //UI
@@ -99,11 +113,10 @@ namespace SW_VRGame
 
         void DamagePlayer()
         {
-            if(playerLife > 0)
-            {
-                //danneggio
-            }
-            else
+            playerLife--;
+            life_icons[playerLife].enabled = false;
+            
+            if(playerLife <= 0)
             {
                 //game Over
                 my_SpawnManager.EndGameforGameOver();
@@ -124,6 +137,17 @@ namespace SW_VRGame
             gameScore = 0;
             UI_score.text = "GOOD GAME\nCut the ROBOT\nto START";
 
+        }
+
+        //
+        public void RestorePlayerHealth()
+        {
+            playerLife = 3;
+
+            foreach(Image icon in life_icons)
+            {
+                icon.enabled = true;
+            }
         }
 
 
