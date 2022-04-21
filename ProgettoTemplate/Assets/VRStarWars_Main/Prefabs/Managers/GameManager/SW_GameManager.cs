@@ -38,21 +38,38 @@ namespace SW_VRGame
 
         //Score
         //Gamemanager deve ascoltare le chiamate da CutBlade e Cestino e aumentare lo score quando indicato
-        public int gameScore = 0;
-        public int playerLife;
+        int gameScore;
+        int playerLife;
+        public SW_Start_Cube start_cube; //duplicato, lo uso anche nei config...
      
         [Header("Variabili spawn loop")]
         [SerializeField] SW_SpawnManager.SpawnConfigValue config;
         [SerializeField] SW_SpawnManager.SpawnConfigValue clone_config;
 
+        //
+        //NOTA: Il GameManager implementa i suoi metodi tramite gli eventi
 
         protected override void OnAwake()
         {
+            //gestione score
             SW_CutBladeLogic.Instance.Event_UpdateScoreBlade.AddListener(UpdateScore);
             SW_Canestro.Instance.Event_UpdateScoreCanestro.AddListener(UpdateScore);
-            SW_CutBladeLogic.Instance.Event_StartGame.AddListener(StartNewGame);
+
+            //start new game
+            start_cube.startnewWave += StartNewGame;
+
+            //damage player
             my_colliderGAmeOver.checkRobotCollision += DamagePlayer;
 
+            //game End
+            SW_SpawnManager.Instance.endTheGame += UpdateScoreEndGame;
+
+        }
+
+        private void Start()
+        {
+            playerLife = 3;
+            gameScore = 0;
         }
 
 
@@ -64,10 +81,10 @@ namespace SW_VRGame
             //clone_config = copy;
             my_SpawnManager.Test_SpawnBasicRoutine(clone_config);
 
-            RestorePlayerHealth();
+            //spegni start_cube
+            start_cube.ActiveMyself = false;
         }
 
-        //
         public override void ResumeGame()
         {
             if(my_SpawnManager.current_GameLoop == null)
@@ -99,7 +116,23 @@ namespace SW_VRGame
 
         }
 
+        //damage
+        void DamagePlayer()
+        {
+            playerLife--;
+            life_icons[playerLife].enabled = false;
+
+            if (playerLife <= 0)
+            {
+                //game Over
+                my_SpawnManager.EndGameforGameOver(environment.transform, start_cube.gameObject);
+
+            }
+        }
+
         //
+
+        //Score metodi
         void UpdateScore(int value)
         {
             if (my_SpawnManager.current_GameLoop == null)
@@ -111,46 +144,38 @@ namespace SW_VRGame
             UI_score.text = gameScore.ToString();
         }
 
-        void DamagePlayer()
+        /// <summary>
+        /// //Passare TRUE se si perde per life loss
+        /// </summary>
+        /// <param name="isGameOver"></param>
+        public override void UpdateScoreEndGame(bool isGameOver = false) 
         {
-            playerLife--;
-            life_icons[playerLife].enabled = false;
-            
-            if(playerLife <= 0)
+            if (!isGameOver)
             {
-                //game Over
-                my_SpawnManager.EndGameforGameOver();
-
-                //UI
-                UpdateScoreEndGame();
-                UI_score.text = "GAME OVER\nCut the ROBOT\nto START";
-
+                UI_score.text = "GOOD GAME\nCut the ROBOT\nto START";
             }
-        }
+            else
+            {
+                UI_score.text = "GAME OVER!\nCut the ROBOT\nto START";
+            }
+                
 
-        public override void UpdateScoreEndGame()
-        {
-            //
             bestScore = bestScore > gameScore ? bestScore : gameScore;
             UI_bestScore.text = $"Best score: {bestScore}";
 
+            //reset
             gameScore = 0;
-            UI_score.text = "GOOD GAME\nCut the ROBOT\nto START";
-
-        }
-
-        //
-        public void RestorePlayerHealth()
-        {
             playerLife = 3;
 
-            foreach(Image icon in life_icons)
+            foreach (Image icon in life_icons)
             {
                 icon.enabled = true;
             }
+
+            //restore start_cube
+            start_cube.ActiveMyself = true;
+
         }
-
-
 
     }
 }

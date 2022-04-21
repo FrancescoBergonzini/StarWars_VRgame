@@ -12,8 +12,12 @@ namespace SW_VRGame
 
         private void OnTriggerEnter(Collider other)
         {
-            other.gameObject.SetActive(false);
+            if (other.gameObject.tag != Tags.Sliceable)
+                return;
+
+            
             checkRobotCollision();
+            Destroy(other);
         }
     }
 }

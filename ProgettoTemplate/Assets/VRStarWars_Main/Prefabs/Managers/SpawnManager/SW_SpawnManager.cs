@@ -44,17 +44,12 @@ namespace SW_VRGame
         [Space]
         [SerializeField] GameObject spawn_particle;
 
+        //
+        public System.Action<bool> endTheGame;
 
         protected override void OnAwake()
         {
-            //
-            if (currentScene_GameManager == null)
-            {
-                currentScene_GameManager = FindObjectOfType<TemplateGameManager>();
-            }
-
             base.OnAwake();
-
         }
 
 
@@ -77,10 +72,10 @@ namespace SW_VRGame
                     yield return new WaitForSeconds(myconfig.delay);
 
                     //varietà                  
-                    var variaForza = Random.Range(myconfig.launchforce - 2, myconfig.launchforce + 2);
+                    //var variaForza = Random.Range(myconfig.launchforce - 2, myconfig.launchforce + 2);
 
                     //spawn
-                    var newball = SW_TrainingBall.Create(myconfig.prefab_ball, myconfig.spawnPosition[Random.Range(0, myconfig.spawnPosition.Length)].transform.position, variaForza, myconfig.tranform_parent);
+                    var newball = SW_TrainingBall.Create(myconfig.prefab_ball, myconfig.spawnPosition[Random.Range(0, myconfig.spawnPosition.Length)].transform.position, myconfig.launchforce, myconfig.tranform_parent);
 
                     //Particle
                     var particle = Instantiate(spawn_particle, newball.transform);
@@ -90,6 +85,7 @@ namespace SW_VRGame
                    
                 }
 
+                //
                 Debug.LogWarning("Terminato ciclo wave");
                 EndGameClear(myconfig, 15);
 
@@ -107,33 +103,51 @@ namespace SW_VRGame
             }
         }
 
+
         //GAME OVER COROUTINES
         void EndGameClear(SpawnConfigValue myconfig, float timeTowait)
         {
             IEnumerator endGameClear()
             {
                 yield return new WaitForSeconds(timeTowait);
-                current_GameLoop = null;
-                //
+
+                //game end implementation                
+                if (current_GameLoop != null || myconfig.maxEnemyforWave > 0)
+                    yield return null;
+
+                StopLoopCoroutine();
+
                 if (myconfig.tranform_parent != null && myconfig.tranform_parent.childCount > 0)
                 {
                     foreach (Transform child in myconfig.tranform_parent)
                         Destroy(child.gameObject);
                 }
 
-                //UI
-                SW_GameManager.Instance.UpdateScoreEndGame();
-
-                Instantiate(myconfig.start_Cube);
+                endTheGame(false);
             }
 
             StartCoroutine(endGameClear());
         }
 
 
-        public void EndGameforGameOver()
+        public void EndGameforGameOver(Transform pausable, GameObject startCube)
         {
-            Debug.Log("Game over");
+            Debug.Log("Game over for life loss");
+
+            if (current_GameLoop == null)
+                return;
+
+            //game end implementation
+            StopLoopCoroutine();
+
+            //
+            if (pausable != null && pausable.childCount > 0)
+            {
+                foreach (Transform child in pausable)
+                    Destroy(child.gameObject);
+            }
+
+            endTheGame(true);
 
         }
 

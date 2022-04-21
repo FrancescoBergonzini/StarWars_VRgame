@@ -30,7 +30,7 @@ using UnityEngine.XR.Interaction.Toolkit;
             {
                 StartCoroutine(DelayCut());
 
-                _myGrabController.throwVelocityScale = 4;
+                _myGrabController.throwVelocityScale = 2;
                 _myGrabController.interactionLayers = InteractionLayerMask.GetMask("Default");
             }
            
