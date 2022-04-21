@@ -55,11 +55,12 @@ namespace SW_VRGame
 
         public void Test_SpawnBasicRoutine(SpawnConfigValue myconfig) //per avviare una nuova partita, questo va resettato
         {
-            if (current_GameLoop != null || myconfig.maxEnemyforWave <= 0)
+            if (current_GameLoop != null)
                 return;
 
             IEnumerator spawnBasicRoutine(SpawnConfigValue myconfig)
             {
+
                 while (myconfig.maxEnemyforWave > 0)
                 {
 
@@ -86,7 +87,6 @@ namespace SW_VRGame
                 }
 
                 //
-                Debug.LogWarning("Terminato ciclo wave");
                 EndGameClear(myconfig, 15);
 
             }
@@ -111,19 +111,15 @@ namespace SW_VRGame
             {
                 yield return new WaitForSeconds(timeTowait);
 
-                //game end implementation                
-                if (current_GameLoop != null || myconfig.maxEnemyforWave > 0)
-                    yield return null;
-
-                StopLoopCoroutine();
-
                 if (myconfig.tranform_parent != null && myconfig.tranform_parent.childCount > 0)
                 {
                     foreach (Transform child in myconfig.tranform_parent)
                         Destroy(child.gameObject);
+
+                    endTheGame(false);
                 }
 
-                endTheGame(false);
+                
             }
 
             StartCoroutine(endGameClear());
@@ -132,22 +128,17 @@ namespace SW_VRGame
 
         public void EndGameforGameOver(Transform pausable, GameObject startCube)
         {
-            Debug.Log("Game over for life loss");
+            //questa chiamata deve fermare spawnBasicRoutine
+            if(current_GameLoop != null)
+            StopCoroutine(current_GameLoop);
 
-            if (current_GameLoop == null)
-                return;
-
-            //game end implementation
-            StopLoopCoroutine();
-
-            //
             if (pausable != null && pausable.childCount > 0)
             {
                 foreach (Transform child in pausable)
                     Destroy(child.gameObject);
-            }
 
-            endTheGame(true);
+                endTheGame(true);
+            }         
 
         }
 

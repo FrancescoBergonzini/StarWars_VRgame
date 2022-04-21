@@ -78,8 +78,9 @@ namespace SW_VRGame
             //nuova ondata
             clone_config = new SW_SpawnManager.WrapperConfig(config).ReturnValueCopy();
 
-            //clone_config = copy;
             my_SpawnManager.Test_SpawnBasicRoutine(clone_config);
+
+            UI_score.text = "CUT THE\n ROBOTS!";
 
             //spegni start_cube
             start_cube.ActiveMyself = false;
@@ -87,7 +88,7 @@ namespace SW_VRGame
 
         public override void ResumeGame()
         {
-            if(my_SpawnManager.current_GameLoop == null)
+            if(my_SpawnManager.current_GameLoop == null && !start_cube.ActiveMyself)
             {
                 my_SpawnManager.Test_SpawnBasicRoutine(clone_config);
                 base.ResumeGame();
