@@ -22,16 +22,8 @@ namespace SW_VRGame
 
         private void OnCollisionEnter(Collision collision)
         {       
-
             if (collision.gameObject.tag != "Sliceable")
                 return;
-
-            //SISTEMAS
-            if(SW_SpawnManager.Instance.current_GameLoop == null)
-            {
-                Event_StartGame.Invoke();
-            }
-            
 
             //prima dello slice
             //staccare le mesh child

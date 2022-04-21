@@ -74,7 +74,7 @@ public class TemplateGameManager : Singleton<TemplateGameManager>
     }
 
     //
-    public virtual void UpdateScoreEndGame()
+    public virtual void UpdateScoreEndGame(bool isGameOver = false)
     {
         throw new System.NotImplementedException();
     }
