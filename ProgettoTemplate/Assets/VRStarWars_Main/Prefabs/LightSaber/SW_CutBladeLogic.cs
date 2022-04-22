@@ -18,11 +18,10 @@ namespace SW_VRGame
 
         //genera evento update score al cut del nemico
         public Event_Score Event_UpdateScoreBlade = new Event_Score();
-        public Event_Start Event_StartGame = new Event_Start();
 
         private void OnCollisionEnter(Collision collision)
         {       
-            if (collision.gameObject.tag != "Sliceable")
+            if (collision.gameObject.tag != Tags.Sliceable)
                 return;
 
             //prima dello slice
@@ -32,45 +31,37 @@ namespace SW_VRGame
                 disabble.DisassemblePieces();
             }
 
+            //eseguo API cut
             var subsliced = SliceWithCollision.Slice(transform.up, collision, mat_cubeSlice);
 
             //parento i pezzi al Bin cosi poi posso distruggerli
             foreach(GameObject subMesh in subsliced)
             {
                 subMesh.transform.parent = SW_GameManager.Instance.Environment.transform;
+                subMesh.AddComponent<SW_RobotCutted>();
+
+                //PARTICLE
+                Destroy(Instantiate(_robotShockParticle, subMesh.transform), 3);
             }
 
-
-            if (collision.gameObject.TryGetComponent(out SW_RobotCutted cutted))
-            {
-                //se trova già il component significa che è una mesh già tagliata
-                if(cutted.sliceCounter > 0)
-                {                   
-                    foreach (var slice in subsliced)
-                    {
-                        slice.AddComponent<SW_RobotCutted>().sliceCounter = cutted.sliceCounter - 1;
-                    }
-                }               
-            }
-            else
-            {
-                //mesh tagliata per la prima volta
-                foreach (GameObject slice in subsliced)
+            #region MultiCut, tolto per ottimizzazione
+                /*
+                if (collision.gameObject.TryGetComponent(out SW_RobotCutted cutted))
                 {
-                    //PARTICLE
-                    Destroy(Instantiate(_robotShockParticle, slice.transform), 3);
+                    //se trova già il component significa che è una mesh già tagliata
+                    if(cutted.sliceCounter > 0)
+                    {                   
+                        foreach (var slice in subsliced)
+                        {
+                            slice.AddComponent<SW_RobotCutted>().sliceCounter = cutted.sliceCounter - 1;
+                        }
+                    }               
                 }
-                
-                foreach (var slice in subsliced)
-                {
-                    //crea due nuove mesh tagliabili
-                    slice.AddComponent<SW_RobotCutted>();
-                }
+                */
+                #endregion
 
-                //lancio evento +1 score
-                Event_UpdateScoreBlade.Invoke(1);
-
-            }
+            //lancio evento +1 score
+            Event_UpdateScoreBlade.Invoke(1);
 
         }
     }

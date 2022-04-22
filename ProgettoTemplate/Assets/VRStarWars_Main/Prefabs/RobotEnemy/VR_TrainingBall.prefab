@@ -287,6 +287,7 @@ MonoBehaviour:
   - {fileID: 7046664557095992954}
   - {fileID: 13679200271532962}
   timeForDissolve: 2
+  allMeshCall: []
 --- !u!1 &6585595055123918377 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8481069611313063662, guid: f54c3a4d87e83d54bbc8ab60e7422fb4,
@@ -568,7 +569,10 @@ MonoBehaviour:
   pieces:
   - {fileID: 4805880020696519277}
   - {fileID: 783453233692902728}
-  timeForDissolve: 2
+  timeForDissolve: 4
+  allMeshCall:
+  - {fileID: 2098086300721615787}
+  - {fileID: 5885431448116821508}
 --- !u!1001 &6986462815028565319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -847,3 +851,4 @@ MonoBehaviour:
   - {fileID: 1721037747218070011}
   - {fileID: 5734367846530719483}
   timeForDissolve: 2
+  allMeshCall: []

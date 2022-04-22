@@ -5,30 +5,34 @@ using UnityEngine.XR.Interaction.Toolkit;
 
     namespace SW_VRGame
     {
-        [RequireComponent(typeof(Rigidbody))]
-        [RequireComponent(typeof(MeshCollider))]
+
         public class SW_RobotCutted : MonoBehaviour
         {
+        int sliceCounter = 2;
 
-        public int sliceCounter = 2;
-        public float delayCut = 1f;
+        //float delayCut = 1f;
             
         XRGrabInteractable _myGrabController;
+        MeshCollider myColl;
 
         void Awake()
         {
-            this.GetComponent<MeshCollider>().convex = true;
-            _myGrabController = GetComponent<XRGrabInteractable>();
+            
+             myColl = this.gameObject.AddComponent<MeshCollider>();
+        }
 
-            _myGrabController = this.gameObject.AddComponent<XRGrabInteractable>();
-           
+        private void OnEnable()
+        {
+            myColl.convex = true;
         }
 
         private void Start()
         {
+            _myGrabController = this.gameObject.AddComponent<XRGrabInteractable>();
+
             if (this.gameObject != null)
             {
-                StartCoroutine(DelayCut());
+                //StartCoroutine(DelayCut());
 
                 _myGrabController.throwVelocityScale = 3;
                 _myGrabController.interactionLayers = InteractionLayerMask.GetMask("Default");
@@ -36,7 +40,13 @@ using UnityEngine.XR.Interaction.Toolkit;
            
         }
 
-        IEnumerator DelayCut()
+        /// <summary>
+        /// Rende ritagliabili le mesh
+        /// Tolto per ottimizzazione
+        /// </summary>
+        /// <param name="delayCut"></param>
+        /// <returns></returns>
+        IEnumerator DelayCut(float delayCut)
         {
             yield return new WaitForSeconds(delayCut);
             //rendile nuovamente tagliabili dopo un secondo

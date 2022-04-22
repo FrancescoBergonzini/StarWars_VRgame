@@ -9,6 +9,17 @@ namespace SW_VRGame
         [SerializeField] Rigidbody[] pieces;
         [SerializeField] float timeForDissolve;
 
+        //
+        List<MeshCollider> allMeshCall = new List<MeshCollider>();
+
+
+        private void Start()
+        {
+            foreach (Rigidbody pezzo in pieces)
+            {
+                allMeshCall.Add(pezzo.gameObject.GetComponent<MeshCollider>());
+            }
+        }
         public void DisassemblePieces()
         {
             foreach (Rigidbody pezzo in pieces)
@@ -16,12 +27,17 @@ namespace SW_VRGame
                 pezzo.gameObject.transform.parent = null;
                 pezzo.useGravity = true;
                 pezzo.isKinematic = false;
-                pezzo.GetComponent<MeshCollider>().enabled = true; //refactoring
-
                 //
-                Destroy(pezzo.gameObject, 3f);
+                Destroy(pezzo.gameObject, 3f + (Random.Range(-1f, 1f)));
 
             }
+
+            foreach(MeshCollider mesh in allMeshCall)
+            {
+                mesh.enabled = true;
+            }
+
+            
         }
 
     }

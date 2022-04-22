@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace SW_VRGame
 {
@@ -38,9 +39,11 @@ namespace SW_VRGame
 
         //Score
         //Gamemanager deve ascoltare le chiamate da CutBlade e Cestino e aumentare lo score quando indicato
-        int gameScore;
-        int playerLife;
-        public SW_Start_Cube start_cube; //duplicato, lo uso anche nei config...
+        int gameScore = 0;
+        int playerLife = 3;
+        public SW_Start_Cube start_cube; 
+        public Vector3 pos_GameOver;
+        public GameObject player;
      
         [Header("Variabili spawn loop")]
         [SerializeField] SW_SpawnManager.SpawnConfigValue config;
@@ -66,15 +69,11 @@ namespace SW_VRGame
 
         }
 
-        private void Start()
-        {
-            playerLife = 3;
-            gameScore = 0;
-        }
-
 
         public void StartNewGame()
         {
+
+            SW_SpawnManager.Instance.StopLoopCoroutine();
             //nuova ondata
             clone_config = new SW_SpawnManager.WrapperConfig(config).ReturnValueCopy();
 
@@ -106,11 +105,9 @@ namespace SW_VRGame
 
         public override void PauseGame()
         {
-            if(my_SpawnManager.current_GameLoop != null)
-            {
-                my_SpawnManager.StopLoopCoroutine();
-                base.PauseGame();
-            }
+
+            my_SpawnManager.StopLoopCoroutine();
+            base.PauseGame();
 
             //UI
             UI_score.text = "PAUSE";
@@ -120,15 +117,18 @@ namespace SW_VRGame
         //damage
         void DamagePlayer()
         {
-            playerLife--;
-            life_icons[playerLife].enabled = false;
-
-            if (playerLife <= 0)
+            if(playerLife > 1)
+            {
+                playerLife--;
+                life_icons[playerLife].enabled = false;
+            }
+            else
             {
                 //game Over
-                my_SpawnManager.EndGameforGameOver(environment.transform, start_cube.gameObject);
-
+                player.transform.position = pos_GameOver;
+                //Destroy(SW_LightSaber.Instance.gameObject);
             }
+
         }
 
         //
@@ -136,7 +136,7 @@ namespace SW_VRGame
         //Score metodi
         void UpdateScore(int value)
         {
-            if (my_SpawnManager.current_GameLoop == null)
+            if (my_SpawnManager.current_GameLoop == null || !SW_SpawnManager.Instance.waveWorking)
                 return;
 
             gameScore += value;
@@ -176,6 +176,12 @@ namespace SW_VRGame
             //restore start_cube
             start_cube.ActiveMyself = true;
 
+        }
+
+        //
+        public void Restart()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
     }

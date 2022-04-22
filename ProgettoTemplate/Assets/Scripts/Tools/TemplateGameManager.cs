@@ -49,7 +49,11 @@ public class TemplateGameManager : Singleton<TemplateGameManager>
         GameIsInPause = false;
 
         foreach (IPausable pausable in environment.GetComponentsInChildren<IPausable>(true))
+        {
+            if(pausable != null)
             pausable.Pause(false);
+        }
+            
     }
 
     public virtual void PauseGame()
@@ -59,10 +63,8 @@ public class TemplateGameManager : Singleton<TemplateGameManager>
 
         foreach (IPausable pausable in environment.GetComponentsInChildren<IPausable>(true))
         {
-            if (pausable.IsPausable)
-            {
-                pausable.Pause(true);
-            }              
+            if (pausable != null) 
+            pausable.Pause(true);
         }
             
     }

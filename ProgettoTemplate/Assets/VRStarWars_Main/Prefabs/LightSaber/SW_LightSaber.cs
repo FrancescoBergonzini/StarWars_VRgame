@@ -5,11 +5,13 @@ using UnityEngine;
 namespace SW_VRGame
 {
     /// <summary>
-    /// Logica spada base, gestisce attivazione e pausa
+    /// Logica spada base, gestisce attivazione e pausa, non il cut
     /// </summary>
     public class SW_LightSaber : Singleton<SW_LightSaber>
     {
+        [HideInInspector]
         public bool isBeenGrabbed;
+        [HideInInspector]
         public bool isPaused; //false
 
         [SerializeField] Collider swordCollider;

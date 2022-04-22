@@ -39,10 +39,7 @@ public class HandInputHandler : MonoBehaviour
         SetSwordStatus.action.performed -= SetSword;
     }
 
-    private void Restart(InputAction.CallbackContext obj)
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+
 
     /// <summary>
     /// Set Sword determina la stato PAUSA, ma si attiva solo se la spada è grabbata
