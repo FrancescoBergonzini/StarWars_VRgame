@@ -14,7 +14,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(XRBaseController))]
 public class HandInputHandler : MonoBehaviour
 {
-    protected XRBaseController controller;
+    public XRBaseController[] controllers;
     //[SerializeField]
     //protected InputActionReference RestartAction;
     [SerializeField]
@@ -24,14 +24,13 @@ public class HandInputHandler : MonoBehaviour
 
     void Awake()
     {
-        controller = GetComponent<XRBaseController>();
-        //RestartAction.action.performed += Restart;
         
     }
 
     private void Start()
     {
         SetSwordStatus.action.performed += SetSword;
+        SW_VRGame.SW_CutBladeLogic.Instance.Event_ApticInput += SendHapticImpulse;
     }
 
     private void OnDisable()
@@ -71,7 +70,11 @@ public class HandInputHandler : MonoBehaviour
     /// <param name="duration"></param>
     public void SendHapticImpulse(float amplitude, float duration)
     {
-        controller.SendHapticImpulse(amplitude, duration);
+        foreach(XRBaseController controller in controllers)
+        {
+            controller.SendHapticImpulse(amplitude, duration);
+        }
+        
     }
 
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AudioItem = SW_VRGame.AudioManager.AudioType;
 using UnityEngine.Events;
 
 namespace SW_VRGame
@@ -18,6 +19,7 @@ namespace SW_VRGame
 
         //genera evento update score al cut del nemico
         public Event_Score Event_UpdateScoreBlade = new Event_Score();
+        public System.Action<float, float> Event_ApticInput;
 
         private void OnCollisionEnter(Collision collision)
         {       
@@ -62,6 +64,11 @@ namespace SW_VRGame
 
             //lancio evento +1 score
             Event_UpdateScoreBlade.Invoke(1);
+
+            //sound e aptic effect
+            AudioManager.Instance.Play(AudioItem.RobotCutDestroy);
+            Event_ApticInput(0.75f, 0.5f);
+            
 
         }
     }

@@ -56,13 +56,42 @@ namespace SW_VRGame
             IEnumerator spawnBasicRoutine(SpawnConfigValue myconfig)
             {
                 waveWorking = true;
+                int cont = 0;
 
                 while (myconfig.maxEnemyforWave > 0)
                 {
-                    yield return new WaitForSeconds(myconfig.delay);
+                    //aumenta difficoltà aumentando velocità e diminuendo delay
+                    var new_lounchforce = myconfig.launchforce;
+                    var new_delay = myconfig.delay;
+
+                    //molto rozzo...
+                    if(cont > 4)
+                    {
+                        new_lounchforce += 0.5f;
+                        new_delay -= 0.5f;
+                    }
+                    else if(cont > 8)
+                    {
+                        new_lounchforce += 0.5f;
+                        new_delay -= 0.5f;
+                    }
+                    else if(cont > 12)
+                    {
+                        new_lounchforce += 0.5f;
+                        new_delay -= 0.5f;
+                    }
+                    else if(cont > 16)
+                    {
+                        new_lounchforce += 0.5f;
+                        new_delay -= 0.5f;
+                    }
+
+
+                    yield return new WaitForSeconds(new_delay);
+                    
 
                     //spawn
-                    var newball = SW_TrainingBall.Create(myconfig.prefab_ball, myconfig.spawnPosition[Random.Range(0, myconfig.spawnPosition.Length)].transform.position, myconfig.launchforce, myconfig.tranform_parent);
+                    var newball = SW_TrainingBall.Create(myconfig.prefab_ball, myconfig.spawnPosition[Random.Range(0, myconfig.spawnPosition.Length)].transform.position, new_lounchforce, myconfig.tranform_parent);
 
                     //Particle
                     var particle = Instantiate(spawn_particle, newball.transform);
