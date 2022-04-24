@@ -626,7 +626,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945085728}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!21 &1040524434
+--- !u!21 &1365035973
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -1198,6 +1198,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 553800767225109865, guid: eda95c27c5766af4a942b9d85181ebbf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 553800767225109868, guid: eda95c27c5766af4a942b9d85181ebbf,
         type: 3}
       propertyPath: m_CastShadows
