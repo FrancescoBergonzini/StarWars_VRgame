@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6882896451236149066
+--- !u!114 &-6037613664291539967
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water_Material
-  m_Shader: {fileID: -6465566751694194690, guid: 161cdb5556205f04cab8c61f44121d6c,
+  m_Name: Water1
+  m_Shader: {fileID: -6465566751694194690, guid: 03e4d54ac607a2d438ef7d8691cd54f7,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 2
@@ -33,15 +33,11 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainNormal:
-        m_Texture: {fileID: 2800000, guid: 59bbe8e5cf8c67b44b75d7d706ede3bf, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _RefractionNormal:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _SecondNormal:
+        m_Texture: {fileID: 2800000, guid: c540326e3a2ae6347a26ee61347d4988, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _mainNormal:
         m_Texture: {fileID: 2800000, guid: 22648fcc9d96ea24dbb9b5a14ffc6e80, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -59,22 +55,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Depht: -4.44
-    - _Distance: 1
-    - _HightFrequency: 0
-    - _Normal_streght: 1
+    - _Depht: 1
+    - _Displacement: 0.6
+    - _NormalStreght: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _RefractionSpeed: 0
-    - _RefractionStrength: 0
-    - _Smoothne: 0.731
-    - _Streght: 0.044
-    - _displacement: 0.55
+    - _Smoothless: 0.637
+    - _strenght: 0.791
     m_Colors:
-    - _DeepColor: {r: 0, g: 0, b: 0, a: 0}
-    - _Deep_Water_color: {r: 0.02491992, g: 0.6389925, b: 0.75471693, a: 1}
-    - _RefractionScale: {r: 0, g: 0, b: 0, a: 0}
-    - _Shallow_water_color: {r: 0.5333334, g: 0.9465135, b: 1, a: 1}
-    - _SurfaceColor: {r: 0.30015132, g: 0.56152964, b: 0.8962264, a: 0}
-    - _UV: {r: 0, g: 0, b: 0, a: 0}
+    - _Shallow_Water_Color: {r: 0.5279903, g: 0.95326, b: 0.99056596, a: 0.44705883}
+    - _deepWaterColor: {r: 0.01957992, g: 0.5723764, b: 0.8301887, a: 0.7647059}
   m_BuildTextureStacks: []
