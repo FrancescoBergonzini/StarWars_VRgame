@@ -615,6 +615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6344b7c54cfa94667b7e646ac91a389c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllers: []
   SetSwordStatus: {fileID: -5430067845239506339, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
 --- !u!1 &1707976571
@@ -1270,7 +1271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5c5d0bdefe3d14482446511d7b4a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BaseControllerGameObject: {fileID: 0}
+  m_BaseControllerGameObject: {fileID: 1041629032}
   m_TeleportControllerGameObject: {fileID: 0}
   m_TeleportModeActivate: {fileID: 0}
   m_TeleportModeCancel: {fileID: 0}
@@ -1711,8 +1712,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_ValidColorGradient:
     serializedVersion: 2
-    key0: {r: 0.0073928833, g: 0, b: 1, a: 1}
-    key1: {r: 0.0990566, g: 0.951986, b: 1, a: 0.8784314}
+    key0: {r: 1, g: 0, b: 0.07817793, a: 1}
+    key1: {r: 1, g: 0.51666296, b: 0.09803921, a: 0.8784314}
     key2: {r: 1, g: 1, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
