@@ -67,6 +67,7 @@ namespace SW_VRGame
 
             //sound e aptic effect
             AudioManager.Instance.Play(AudioItem.RobotCutDestroy);
+
             Event_ApticInput(0.75f, 0.5f);
             
 

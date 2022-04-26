@@ -33,6 +33,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainNormal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SecondNormal:
         m_Texture: {fileID: 2800000, guid: c540326e3a2ae6347a26ee61347d4988, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -56,13 +60,17 @@ Material:
     m_Ints: []
     m_Floats:
     - _Depht: 1
+    - _Depth: 0
     - _Displacement: 0.6
     - _NormalStreght: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothless: 0.637
+    - _Strenght: 0
     - _strenght: 0.791
     m_Colors:
+    - _DeepWaterColor: {r: 0, g: 0.47058815, b: 0.7098039, a: 0.7294118}
+    - _ShallowWaterColor: {r: 0.34901956, g: 0.9137255, b: 1, a: 0.6862745}
     - _Shallow_Water_Color: {r: 0.5279903, g: 0.95326, b: 0.99056596, a: 0.44705883}
     - _deepWaterColor: {r: 0.01957992, g: 0.5723764, b: 0.8301887, a: 0.7647059}
   m_BuildTextureStacks: []
