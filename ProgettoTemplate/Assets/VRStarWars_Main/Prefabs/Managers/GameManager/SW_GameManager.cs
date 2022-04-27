@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using AudioItem = SW_VRGame.AudioManager.AudioType;
 
 namespace SW_VRGame
 {
@@ -83,6 +84,9 @@ namespace SW_VRGame
 
             //spegni start_cube
             start_cube.ActiveMyself = false;
+
+            //AUDIO
+            AudioManager.Instance.Play(AudioItem.StartGame);
         }
 
         public override void ResumeGame()
@@ -127,6 +131,7 @@ namespace SW_VRGame
                 //game Over
                 player.transform.position = pos_GameOver;
                 //Destroy(SW_LightSaber.Instance.gameObject);
+
             }
 
         }
@@ -154,10 +159,16 @@ namespace SW_VRGame
             if (!isGameOver)
             {
                 UI_score.text = "GOOD GAME\nCut the ROBOT\nto START";
+
+                //AUDIO
+                AudioManager.Instance.Play(AudioItem.Win);
             }
             else
             {
                 UI_score.text = "GAME OVER!\nCut the ROBOT\nto START";
+
+                //AUDIO
+                AudioManager.Instance.Play(AudioItem.Lose);
             }
                 
 

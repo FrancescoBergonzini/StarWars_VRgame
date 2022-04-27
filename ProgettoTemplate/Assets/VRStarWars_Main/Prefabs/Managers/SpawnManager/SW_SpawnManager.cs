@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AudioItem = SW_VRGame.AudioManager.AudioType;
 
 namespace SW_VRGame
 {   
@@ -77,13 +78,13 @@ namespace SW_VRGame
                     }
                     else if(cont > 12)
                     {
-                        new_lounchforce += 0.5f;
-                        new_delay -= 0.5f;
+                        new_lounchforce += 1f;
+                        new_delay -= 1f;
                     }
                     else if(cont > 16)
                     {
-                        new_lounchforce += 0.5f;
-                        new_delay -= 0.5f;
+                        new_lounchforce += 1f;
+                        new_delay -= 1f;
                     }
 
 
@@ -98,6 +99,9 @@ namespace SW_VRGame
                     Destroy(particle, 5);
 
                     myconfig.maxEnemyforWave--;
+
+                    //AUDIO
+                    AudioManager.Instance.Play(AudioItem.EnemySpawn);
                 }
 
                 //

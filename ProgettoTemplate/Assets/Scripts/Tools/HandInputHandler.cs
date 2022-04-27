@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.SceneManagement;
+using AudioItem = SW_VRGame.AudioManager.AudioType;
 
 
 /// <summary>
@@ -20,13 +21,6 @@ public class HandInputHandler : MonoBehaviour
     [SerializeField]
     protected InputActionReference SetSwordStatus;
  
-
-
-    void Awake()
-    {
-        
-    }
-
     private void Start()
     {
         SetSwordStatus.action.performed += SetSword;
@@ -54,10 +48,18 @@ public class HandInputHandler : MonoBehaviour
         if (SW_VRGame.SW_LightSaber.Instance.isPaused)
         {
             SW_VRGame.SW_GameManager.Instance.ResumeGame();
+
+
+            //AUDIO
+            SW_VRGame.AudioManager.Instance.Play(AudioItem.LaserSwordOff);
         }
         else
         {
             SW_VRGame.SW_GameManager.Instance.PauseGame();
+
+
+            //AUDIO
+            SW_VRGame.AudioManager.Instance.Play(AudioItem.LaserSwordOff);
         }
     }
 

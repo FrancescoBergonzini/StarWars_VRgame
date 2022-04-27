@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AudioItem = SW_VRGame.AudioManager.AudioType;
 
 namespace SW_VRGame
 {
@@ -33,7 +34,6 @@ namespace SW_VRGame
         // Update is called once per frame
         void Update()
         {
-            //da sistemare REFACTORING
             //Accendo il laser se il transform del local scale di y è minore del fullsize di y
             if (isPaused && laser.transform.localScale.y < fullSize.y)
             {
@@ -50,6 +50,7 @@ namespace SW_VRGame
                     laser.transform.localScale += new Vector3(0, -0.0001f, 0);
                     isPaused = false;
                     swordCollider.enabled = false;
+
 
                 }
             }

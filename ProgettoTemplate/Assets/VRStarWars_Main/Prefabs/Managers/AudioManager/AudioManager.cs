@@ -12,7 +12,18 @@ namespace SW_VRGame
         {
             None =0,
 
-            RobotCutDestroy
+            RobotCutDestroy,
+            LaserSwordOn,
+            LaserSwordOff,
+            Lose,
+            Win,
+            EnemySpawn,
+            RobotSmashed,
+            Button,
+            Hide,
+            Show,
+            StartGame,
+            PlayerDamage
             
             
         }
@@ -88,5 +99,6 @@ namespace SW_VRGame
                 return;
             }
         }
+
     }
 }

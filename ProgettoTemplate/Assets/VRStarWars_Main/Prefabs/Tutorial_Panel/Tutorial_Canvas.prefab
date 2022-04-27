@@ -1,5 +1,138 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &24005825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 24005826}
+  - component: {fileID: 24005829}
+  - component: {fileID: 24005828}
+  - component: {fileID: 24005827}
+  m_Layer: 0
+  m_Name: Button (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &24005826
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24005825}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1225877702656867416}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 5.7, y: -0.76}
+  m_SizeDelta: {x: 1.5, y: 1.122}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &24005829
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24005825}
+  m_CullTransparentMesh: 1
+--- !u!114 &24005828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24005825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 7c053f38f1cccd44a81a8997eb04297b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &24005827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24005825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 24005828}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8970860952177322406}
+        m_TargetAssemblyTypeName: SW_Tutorial, Assembly-CSharp
+        m_MethodName: ChangeAdvice
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &894746648
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,6 +146,7 @@ GameObject:
   - component: {fileID: 894746652}
   - component: {fileID: 894746651}
   - component: {fileID: 894746650}
+  - component: {fileID: 1640331888}
   m_Layer: 0
   m_Name: HIde
   m_TagString: Untagged
@@ -27,8 +161,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 894746648}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.070880085, y: -0.87959284, z: 0.13869815, w: 0.44950578}
+  m_LocalPosition: {x: 0, y: 0, z: -7.069}
   m_LocalScale: {x: 0.122796364, y: 0.122796364, z: 0.122796364}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37,8 +171,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10.73, y: -7.011}
-  m_SizeDelta: {x: 9.197, y: 10.163}
+  m_AnchoredPosition: {x: 10.3, y: -9.129}
+  m_SizeDelta: {x: 11.177, y: 12.351}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &894746653
 CanvasRenderer:
@@ -190,6 +324,25 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!1183024399 &1640331888
+LookAtConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894746648}
+  m_Enabled: 1
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_Roll: 0
+  m_WorldUpObject: {fileID: 0}
+  m_UseUpObject: 0
+  m_IsContraintActive: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 0}
+    weight: 1
 --- !u!1 &621915642337515056
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +356,7 @@ GameObject:
   - component: {fileID: 5677285247488446245}
   - component: {fileID: 7066653589003820430}
   - component: {fileID: 1990649485781312799}
+  - component: {fileID: 1631145980}
   m_Layer: 0
   m_Name: Show
   m_TagString: Untagged
@@ -217,8 +371,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621915642337515056}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.07741043, y: 0.89539915, z: -0.17181388, w: 0.40342045}
+  m_LocalPosition: {x: 0, y: 0, z: -7.43}
   m_LocalScale: {x: 0.122796364, y: 0.122796364, z: 0.122796364}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -227,7 +381,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.85, y: -7.011}
+  m_AnchoredPosition: {x: 0.72, y: -9.15}
   m_SizeDelta: {x: 9.197, y: 10.163}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2356639890886348174
@@ -380,6 +534,25 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!1183024399 &1631145980
+LookAtConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621915642337515056}
+  m_Enabled: 1
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_Roll: 0
+  m_WorldUpObject: {fileID: 0}
+  m_UseUpObject: 0
+  m_IsContraintActive: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 0}
+    weight: 1
 --- !u!1 &713864311026723274
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,15 +933,18 @@ MonoBehaviour:
   Title_text: {fileID: 7569724624224040542}
   maxNumberAdvice: 4
   adviceText:
-  - 'Benvenuto in SmashRobot.
+  - 'Benvenuto in SmashRobot.<br>
 
-    Scorri tra le schede per imparare i comandi.
-
-    Clicca
-    il pulsante <b>occhio</b> per nasconde questo pannello.'
-  - Esempio testo 1
-  - Esempio testo 2
-  - Esempio testo 3
+    Scorri tra le schede per imparare i comandi.<br>Clicca
+    il pulsante <b>occhio</b> per nascondere questo pannello, interagisci con il
+    <b>Ray sinistro.</b>'
+  - Afferra la spada alla tua destra.<br>Attivala e usala per tagliare i nemici,
+    spegnila per mettere in pausa,<br>quando sei pronto tocca lo <b>StartCube</b>
+    con la spada.
+  - "Puoi fare pi\xF9 punti lanciando i pezzi dei nemici nei <b>trituratori</b><br>ai
+    lati del corridoio.<br>Prendili a lanciali con la mano libera."
+  - Se ti sfuggono troppi Robot andrai in <b>GAME OVER</b><br>e dovrai ricominciare.<br>Buona
+    partita, cerca di migliorare il tuo score!
   allImages:
   - {fileID: 21300000, guid: 13a26dbcf1515f441adcf7106a41ef54, type: 3}
   - {fileID: 21300000, guid: ea56fa73262333e4b8790262159613c8, type: 3}
@@ -1040,6 +1216,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2647198370972131330}
+  - {fileID: 24005826}
   m_Father: {fileID: 985427438558528482}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1287,7 +1464,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Testo esempio tutorial.
+  m_text: 'Benvenuto in SmashRobot.<br>
+
+    Scorri tra le schede per imparare i
+    comandi.<br>Clicca il pulsante <b>occhio</b> per nascondere questo pannello,
+    interagisci con il <b>Ray sinistro.</b>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1296,8 +1477,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1314,15 +1495,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
+  m_fontSize: 0.4
   m_fontSizeBase: 0.5
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0.3
-  m_fontSizeMax: 1
+  m_fontSizeMax: 1.5
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

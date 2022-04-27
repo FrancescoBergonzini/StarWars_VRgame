@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AudioItem = SW_VRGame.AudioManager.AudioType;
 
 namespace SW_VRGame
 {
@@ -26,7 +27,8 @@ namespace SW_VRGame
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.LogWarning("Collisione con" + other.name);
+            //AUDIO
+            AudioManager.Instance.Play(AudioItem.RobotSmashed);
 
             //particle
             Destroy(Instantiate(robotdestroy_particle, other.transform.position, Quaternion.identity),3);

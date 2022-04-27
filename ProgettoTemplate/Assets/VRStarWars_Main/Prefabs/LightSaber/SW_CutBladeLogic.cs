@@ -65,9 +65,10 @@ namespace SW_VRGame
             //lancio evento +1 score
             Event_UpdateScoreBlade.Invoke(1);
 
-            //sound e aptic effect
+            //AUDIO 
             AudioManager.Instance.Play(AudioItem.RobotCutDestroy);
 
+            //APCTIC EFFECT
             Event_ApticInput(0.75f, 0.5f);
             
 
