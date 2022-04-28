@@ -18,6 +18,8 @@ namespace SW_VRGame
         [SerializeField] Collider swordCollider;
         [SerializeField] GameObject laser;
 
+        public bool accendo = false;
+
         //dimensione della spada con laser attivo
         private Vector3 fullSize;
 
@@ -28,18 +30,19 @@ namespace SW_VRGame
             fullSize = laser.transform.localScale;
 
             //al di là della scala creiamo un nuovo vettore che mette a  0 la y
-            laser.transform.localScale = new Vector3(fullSize.x, 0.0001f, fullSize.z);
+            laser.transform.localScale = new Vector3(fullSize.x, 0, fullSize.z);
         }
 
         // Update is called once per frame
         void Update()
         {
             //Accendo il laser se il transform del local scale di y è minore del fullsize di y
-            if (isPaused && laser.transform.localScale.y < fullSize.y)
+            if (isPaused  && laser.transform.localScale.y < fullSize.y)
             {
                 //ATTIVO
                 laser.transform.localScale += new Vector3(0, 0.0001f, 0);
                 isPaused = true;
+               
                 swordCollider.enabled = true;
             }
             else
@@ -54,9 +57,20 @@ namespace SW_VRGame
 
                 }
             }
+           /*if(accendo && laser.transform.localScale.y < fullSize.y)
+            {
+                //ATTIVO
+                laser.transform.localScale += new Vector3(0, 0.0001f, 0);
+            }
 
+            if (!accendo && laser.transform.localScale.y >= 0.0001)
+            {
+                //NON ATTIVO
+                laser.transform.localScale += new Vector3(0, -0.0001f, 0);
+            }*/
 
         }
+
 
         //chiamato dall XR Grab Interactable
         public void SwordGrabbed(bool grabbed)
