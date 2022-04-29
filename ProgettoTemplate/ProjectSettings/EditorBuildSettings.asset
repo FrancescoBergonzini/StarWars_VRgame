@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/VRStarWars_Main/Scenes/SW_Tutorial.unity
+    path: Assets/VRStarWars_Main/Scenes/SW_MainGame.unity
     guid: bb1e1cfa6d5a2b24eb5984de3d36af53
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: f3d36b094c7e90a48bfeecc8253553a0,

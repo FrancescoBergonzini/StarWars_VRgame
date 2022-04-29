@@ -30,10 +30,9 @@ namespace SW_VRGame
             fullSize = laser.transform.localScale;
 
             //al di là della scala creiamo un nuovo vettore che mette a  0 la y
-            laser.transform.localScale = new Vector3(fullSize.x, 0, fullSize.z);
+            laser.transform.localScale = new Vector3(fullSize.x, 0.0001f, fullSize.z);
         }
 
-        // Update is called once per frame
         void Update()
         {
             //Accendo il laser se il transform del local scale di y è minore del fullsize di y
@@ -57,6 +56,7 @@ namespace SW_VRGame
 
                 }
             }
+
            /*if(accendo && laser.transform.localScale.y < fullSize.y)
             {
                 //ATTIVO
@@ -76,7 +76,6 @@ namespace SW_VRGame
         public void SwordGrabbed(bool grabbed)
         {
             isBeenGrabbed = grabbed;
-
         }
 
     }

@@ -23,8 +23,7 @@ namespace SW_VRGame
             Hide,
             Show,
             StartGame,
-            PlayerDamage
-            
+            PlayerDamage           
             
         }
 
@@ -46,7 +45,7 @@ namespace SW_VRGame
             public AudioSource source;
         }
 
-        public SoundLibrary[] sounds;
+        public SoundLibrary[] sounds; //sarebbe da ottimizzare con Dictionary...
 
         public static AudioManager Instance;
 

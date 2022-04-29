@@ -8,7 +8,7 @@ namespace SW_VRGame
 {
 
     /// <summary>
-    /// Classe con logica per il cut delle mesh + update dello score
+    /// Classe con logica per il cut delle mesh 
     /// </summary>
     public class SW_CutBladeLogic : Singleton<SW_CutBladeLogic>
     {
@@ -19,6 +19,7 @@ namespace SW_VRGame
 
         //genera evento update score al cut del nemico
         public Event_Score Event_UpdateScoreBlade = new Event_Score();
+        //uptic 
         public System.Action<float, float> Event_ApticInput;
 
         private void OnCollisionEnter(Collision collision)

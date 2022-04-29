@@ -13,10 +13,6 @@ namespace SW_VRGame
     public class Event_Score : UnityEvent<int> { }
     public class Event_Start : UnityEvent { }
 
-    public static class Layers
-    {
-        
-    }
 
     public static class Tags
     {
@@ -36,7 +32,7 @@ namespace SW_VRGame
         [SerializeField] SW_EndGameCollider my_colliderGAmeOver;
 
         [Space]
-        [SerializeField] SW_SpawnManager my_SpawnManager; //qua sarebbe meglio usare UnityEvent
+        [SerializeField] SW_SpawnManager my_SpawnManager; 
 
         //Score
         //Gamemanager deve ascoltare le chiamate da CutBlade e Cestino e aumentare lo score quando indicato

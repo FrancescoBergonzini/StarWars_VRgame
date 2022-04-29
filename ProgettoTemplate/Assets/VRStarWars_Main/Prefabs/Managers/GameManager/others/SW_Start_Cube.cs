@@ -7,6 +7,8 @@ namespace SW_VRGame
     /// <summary>
     /// Si occupa di far iniziare la newWave, si attiva e disattiva
     /// </summary>
+    /// 
+    
     public class SW_Start_Cube : MonoBehaviour
     {
         public System.Action startnewWave;
