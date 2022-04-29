@@ -12,6 +12,7 @@ namespace SW_VRGame
     public class SW_Start_Cube : MonoBehaviour
     {
         public System.Action startnewWave;
+        public GameObject particle;
 
         bool activeMyself;
         public bool ActiveMyself
@@ -41,6 +42,7 @@ namespace SW_VRGame
         private void OnTriggerEnter(Collider other)
         {
             startnewWave();
+            Destroy(Instantiate(particle), 5);
         }
     }
 }
